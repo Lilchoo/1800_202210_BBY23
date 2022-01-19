@@ -6,7 +6,7 @@
 
 ## General Info
 This browser based web application to ...
-	
+* Hi my name is Linh. I'm excited to work on this project with both of you.
 ## Technologies
 Technologies used for this project:
 * HTML, CSS
