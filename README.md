@@ -6,7 +6,9 @@
 
 ## General Info
 This browser based web application to ...
+* Hi my name is Avnoor. I'm excited about this project because I will get some experience about the projects.
 * Hi my name is Linh. I'm excited to work on this project with both of you.
+	
 ## Technologies
 Technologies used for this project:
 * HTML, CSS
