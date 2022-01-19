@@ -6,6 +6,7 @@
 
 ## General Info
 This browser based web application to ...
+* Hi my name is Gareth. I'm excited about this project because I will learn practical knowledge on how to collaborate on a projects.
 	
 ## Technologies
 Technologies used for this project:
