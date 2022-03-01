@@ -2,14 +2,34 @@
 <html lang="en">
 
 <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles/myTeamStyle.css">
-    <title>My Teampage</title>
+    <title>Health+</title>
+
+    <!-------------------------------------------------------->
+    <!-- Firebase 8 Library related CSS, JS, JQuery go here -->
+    <!-------------------------------------------------------->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
+
+
 </head>
 
 <body>
+    <!-- navbar -->
+    <nav id="navbarPlaceholder"></nav>
+
     <div class="box">
         <input type="search" id="search" placeholder="Search Member..">
     </div>
@@ -123,6 +143,11 @@
     <label>
         <button type="submit" class="addbtn">Add more members</button>
     </label>
+
+    <nav id="footerPlaceholder"></nav>
+
+    <script src="./scripts/firebaseAPI_TEAMBBY23.js"></script>
+    <script src="./scripts/skeleton.js"></script>
 </body>
 
 </html>
