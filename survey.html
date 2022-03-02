@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./styles/style.css">
+    <script src="./scripts/survey.js" defer></script>
+</head>
+
+<body>
+    <form data-multi-step class="multi-step-form">
+
+        <div class="card" data-step>
+            <h3 class="step-title">Question 1</h3>
+            <div class="form-group">
+                <p>Have you travelled outside of Canad in the last 14 days?</p>
+            </div>
+            <br>
+            <input type="radio" name="yes" value="yes">Yes<br>
+            <input type="radio" name="no" value="no">No<br>
+        </div>
+
+        <div class="card" data-step>
+            <h3 class="step-title">Question 2</h3>
+            <div class="form-group">
+                <p>Has someone you are in close contact with tested positive for COVID-19 in the last 14 days?</p>
+            </div>
+            <br>
+            <input type="radio" name="yes" value="yes">Yes<br>
+            <input type="radio" name="no" value="no">No<br>
+        </div>
+
+        <div class="card" data-step>
+            <h3 class="step-title">Question 3</h3>
+            <div class="form-group">
+                <p>Are you in close contact with a person who is sick with new respiratory symptoms or who recently
+                    traveled out of of Canada?</p>
+            </div>
+            <br>
+            <input type="radio" name="yes" value="yes">Yes<br>
+            <input type="radio" name="no" value="no">No<br>
+        </div>
+
+        <div class="card" data-step>
+            <h3 class="step-title">Question 4</h3>
+            <div class="form-group">
+                <p>Are you experiencing any of the following:</p>
+                <ul>
+                    <li>Severe difficultu breathing (e.g. struggling to breathe or speaking in a single words)</li>
+                    <li>Severe chest pain</li>
+                    <li>Having a very hard time waking up</li>
+                    <li>Feeling confused</li>
+                    <li>Losing consciousness</li>
+                </ul>
+            </div>
+            <br>
+            <input type="radio" name="yes" value="yes">Yes<br>
+            <input type="radio" name="no" value="no">No<br>
+        </div>
+
+        <div class="card" data-step>
+            <h3 class="step-title">Question 5</h3>
+            <div class="form-group">
+                <p>Are you experiencing any of the following:</p>
+                <ul>
+                    <li>Inability to lie down because of difficulty breathing</li>
+                    <li>Chronic health conditions that you are having difficulty managing because of difficulty
+                        breathing</li>
+                </ul>
+            </div>
+            <br>
+            <input type="radio" name="yes" value="yes">Yes<br>
+            <input type="radio" name="no" value="no">No<br>
+        </div>
+
+        <div class="card" data-step>
+            <h3 class="step-title">Question 6</h3>
+            <div class="form-group">
+                <p>Are you experiencing new or worsening symptoms?</p>
+                <p>Select the symptoms you have. If you are not experiencing any symptoms, select "None of the above."
+                </p>
+                <input type="checkbox" name="symptoms" value="fever-or-chills">Fever of chills<br>
+                <input type="checkbox" name="symptoms" value="cough">Cough (either new, or worsening/exacerbation of
+                chronic<br>
+                <input type="checkbox" name="symptoms" value="shortness-of-breath">Shortness of breath<br>
+                <input type="checkbox" name="symptoms" value="sore-throat">Sore throat<br>
+                <input type="checkbox" name="symptoms" value="sense-of-smell-or-taste">Loss or change of sense of smell
+                or taste<br>
+                <input type="checkbox" name="symptoms" value="headache">Headache<br>
+                <input type="checkbox" name="symptoms" value="fatigue-or-tiredness">Extreme fatigue or tiredness<br>
+                <input type="checkbox" name="symptoms" value="runny-nose">Runny nose<br>
+                <input type="checkbox" name="symptoms" value="sneezing">Sneezing<br>
+                <input type="checkbox" name="symptoms" value="diarrhea">Diarrhea<br>
+                <input type="checkbox" name="symptoms" value="appetite">Loss of appetite<br>
+                <input type="checkbox" name="symptoms" value="nausea-or-vomiting">Nausea or vomiting<br>
+                <input type="checkbox" name="symptoms" value="body-or-muscle aches">Body or muscle aches<br>
+                <input type="checkbox" name="symptoms" value="none-of-the-above">None of the above<br>
+            </div>
+            <div class="form-group">
+                <p>Have you received a new COVID-19 test result?(Optional)</p>
+                <p>If you have not entered it here before, please enter the details of your last COVID-19 test.</p>
+            </div>
+            <input type="radio" name="yes" value="yes">Yes<br>
+            <input type="radio" name="no" value="no">No<br>
+            <div class="form-group">
+                <p>Please enter the details of your COVID-19 test:</p>
+                <label for="data-of-test">Date you had your test:</label>
+                <input type="text" name="date" placeholder="yyyy/mm/dd">
+                <label for="results">Results:</label>
+                <select name="results">
+                    <option value="positive">Positive</option>
+                    <option value="negative">Negative</option>
+                    <option value="indeterminate">Indeterminate</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="card" data-step>
+            <h3 class="step-title">Question 7</h3>
+            <div class="form-group">
+                <p>Are you an individual who is moderately to severely immunocompromised (regardless of your vaccination
+                    status)?</p>
+                <p>For example:</p>
+                <ul>
+                    <li>You have had an organ transplant and are taking anti-rejection medications</li>
+                    <li>You are receiving treatment for cancer</li>
+                    <li>You have had a bone marrow or stem cell transplant</li>
+                    <li>You have been diagnosed with a moderate to severe primary immunodeficiency disorder</li>
+                    <li>You have advanced or untreated HIV</li>
+                    <li>You are on dialysis and/or have severe kidney disease</li>
+                    <li>You are on active treatment with immunosuppressive therapies</li>
+                </ul>
+            </div>
+            <br>
+            <input type="radio" name="yes" value="yes">Yes<br>
+            <input type="radio" name="no" value="no">No<br>
+        </div>
+
+    </form>
+</body>
+
+</html>
+
+</html>
