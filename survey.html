@@ -2,12 +2,31 @@
 <html lang="en">
 
 <head>
+    <!-- Required meta tags -->
+    <title>Health+ Survey</title>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+
+    <!------------------------------------------>
+    <!-- Bootstrap Library CSS JS CDN go here -->
+    <!------------------------------------------>
+
+
+    <!-------------------------------------------------------->
+    <!-- Firebase 8 Library related CSS, JS, JQuery go here -->
+    <!-------------------------------------------------------->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
+
+    <!-------------------------------------------->
+    <!-- Other libraries and styles of your own -->
+    <!-------------------------------------------->
+    
     <link rel="stylesheet" href="./styles/style.css">
-    <script src="./scripts/survey.js" defer></script>
 </head>
 
 <body>
@@ -19,8 +38,8 @@
                 <p>Have you travelled outside of Canad in the last 14 days?</p>
             </div>
             <br>
-            <input type="radio" name="yes" value="yes">Yes<br>
-            <input type="radio" name="no" value="no">No<br>
+            <input type="radio" name="yes/no" value="yes">Yes<br>
+            <input type="radio" name="yes/no" value="no">No<br>
         </div>
 
         <div class="card" data-step>
@@ -29,8 +48,8 @@
                 <p>Has someone you are in close contact with tested positive for COVID-19 in the last 14 days?</p>
             </div>
             <br>
-            <input type="radio" name="yes" value="yes">Yes<br>
-            <input type="radio" name="no" value="no">No<br>
+            <input type="radio" name="yes/no1" value="yes">Yes<br>
+            <input type="radio" name="yes/no1" value="no">No<br>
         </div>
 
         <div class="card" data-step>
@@ -40,8 +59,8 @@
                     traveled out of of Canada?</p>
             </div>
             <br>
-            <input type="radio" name="yes" value="yes">Yes<br>
-            <input type="radio" name="no" value="no">No<br>
+            <input type="radio" name="yes/no2" value="yes">Yes<br>
+            <input type="radio" name="yes/no2" value="no">No<br>
         </div>
 
         <div class="card" data-step>
@@ -57,8 +76,8 @@
                 </ul>
             </div>
             <br>
-            <input type="radio" name="yes" value="yes">Yes<br>
-            <input type="radio" name="no" value="no">No<br>
+            <input type="radio" name="yes/no3" value="yes">Yes<br>
+            <input type="radio" name="yes/no3" value="no">No<br>
         </div>
 
         <div class="card" data-step>
@@ -72,8 +91,8 @@
                 </ul>
             </div>
             <br>
-            <input type="radio" name="yes" value="yes">Yes<br>
-            <input type="radio" name="no" value="no">No<br>
+            <input type="radio" name="yes/no4" value="yes">Yes<br>
+            <input type="radio" name="yes/no4" value="no">No<br>
         </div>
 
         <div class="card" data-step>
@@ -103,8 +122,8 @@
                 <p>Have you received a new COVID-19 test result?(Optional)</p>
                 <p>If you have not entered it here before, please enter the details of your last COVID-19 test.</p>
             </div>
-            <input type="radio" name="yes" value="yes">Yes<br>
-            <input type="radio" name="no" value="no">No<br>
+            <input type="radio" name="yes/no5" value="yes">Yes<br>
+            <input type="radio" name="yes/no5" value="no">No<br>
             <div class="form-group">
                 <p>Please enter the details of your COVID-19 test:</p>
                 <label for="data-of-test">Date you had your test:</label>
@@ -135,13 +154,22 @@
                 </ul>
             </div>
             <br>
-            <input type="radio" name="yes" value="yes">Yes<br>
-            <input type="radio" name="no" value="no">No<br>
+            <input type="radio" name="yes/no6" value="yes">Yes<br>
+            <input type="radio" name="yes/no6" value="no">No<br>
+            <br>
+            <button type="button" class="submit" onclick="surveyResults()">Submit</button>
         </div>
 
-    </form>
-</body>
 
-</html>
+    </form>
+
+    <!---------------------------------------------->
+    <!-- Your own JavaScript functions go here    -->
+    <!---------------------------------------------->
+    <script src="./scripts/survey.js" defer></script>
+    <script src="./scripts/firebaseAPI_TEAMBBY23.js"></script>
+
+
+</body>
 
 </html>
