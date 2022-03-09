@@ -72,7 +72,7 @@
     height: auto;
     margin-top: 10px;
 }
-
+/* footer css ends*/
 
 /* top navbar css starts */
 #navbarPlaceholder > #top-navbar {
@@ -92,4 +92,24 @@
 .nav-link {
     color: white;
 }
+/* top navbar css ends */
 
+/* login.html css starts */
+.login-container > #login-title {
+    text-align: center;
+    color: rgb(167,79,247);
+    margin: 5vh 0 5vh 0;
+}
+
+
+/* profile.html css starts */
+.profile-container > #profile-title {
+    text-align: center;
+    color: rgb(167,79,247);
+    margin-top: 3vh;
+}
+
+#profile-instruction {
+    text-align: center;
+    margin: 1vh 0 -5vh 0;
+}
