@@ -7,7 +7,7 @@
 }
 /* survey html css ends*/
 
-/* function1 html css start*/
+/* health html css start*/
 .container {
     display: grid;
     border: solid;
@@ -21,6 +21,9 @@
 
 .myPersonal {
     border: solid;
+    width:90%;
+    height: 100%;
+    background-color: rgb(48, 103, 204);
     border-color: blue;
     grid-column: 3 / 5;
     grid-row: 2 / 3;
@@ -29,13 +32,18 @@
 
 .myTeam {
     border: solid;
+    width:90%;
+    height: 100%;
+    background-color: rgb(60, 179, 113);
     border-color: green;
     grid-column: 3 / 5;
     grid-row: 4 / 5;
     text-align: center;
 }
 
-/* function1 html css ends*/
+
+
+/* health html css ends*/
 
 /* footer css starts*/
 #footerPlaceholder > #bottom-navbar {

@@ -19,7 +19,7 @@ function surveyResults() {
             currentUser.get()
                 .then(userDoc => {
                     var userEmail = userDoc.data().email;
-                    db.collection("Survey Results").add({
+                    db.collection("Results").add({
                         userID: userID,
                         question1: Question1,
                         question2: Question2,
@@ -30,7 +30,7 @@ function surveyResults() {
                         question7: Question7,
                         timestamp: firebase.firestore.FieldValue.serverTimestamp()
                     }).then(()=>{
-                        window.location.href= "thanks.html";
+                        window.location.href= "main.html";
                     })
                 })
         } else {
