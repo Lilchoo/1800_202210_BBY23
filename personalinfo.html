@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles/personalinfo.css">
+    <title>Health+</title>
+
+    <!-------------------------------------------------------->
+    <!-- Firebase 8 Library related CSS, JS, JQuery go here -->
+    <!-------------------------------------------------------->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
+    <script src="https://kit.fontawesome.com/4fe557ad9c.js" crossorigin="anonymous"></script>
+    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
+
+</head>
+
+<body>
+    <!-- navbar -->
+    <nav id="navbarPlaceholder"></nav>
+
+    <div class="personalinfo">
+        <h1>Welcome ...</h1>
+    </div>
+
+    <div class="status">
+        <h4>Your today's health status</h4>
+    </div>
+    <div id="personalhealth">
+        <div class="health_tracking">
+            <div class="heartrate">
+                <br><i class="fa fa-heartbeat" style="font-size: 48px"></i>
+                <br>
+                <h3>Heart Rate</h3>
+                <p><span class="counter">75</span>bpm</p>
+            </div>
+
+            <div class="sleep">
+                <br><i class="fa fa-moon" style="font-size: 48px"></i>
+                <br>
+                <h3>Sleep</h3>
+                <p><span class="counter">8</span>hours</p>
+            </div>
+
+            <div class="workout">
+                <br><i class="fa fa-dumbbell" style="font-size: 48px"></i>
+                <br>
+                <h3>Workout</h3>
+                <p><span class="counter">4</span>hours</p>
+            </div>
+
+            <div class="steps">
+                <br><i class="fa fa-walking" style="font-size: 48px"></i>
+                <br>
+                <h3>Steps</h3>
+                <p><span class="counter">800</span>steps</p>
+            </div>
+        </div>
+        <div class="container">
+            <button type="button" class="btn btn-success" style="position: relative;left: 40%;">Next Step</button>
+        </div>
+    </div>
+
+    <!--footer-->
+    <nav id="footerPlaceholder"></nav>
+
+    <script src="./scripts/firebaseAPI_TEAMBBY23.js"></script>
+    <script src="./scripts/skeleton.js"></script>
+
+</body>
+
+</html>

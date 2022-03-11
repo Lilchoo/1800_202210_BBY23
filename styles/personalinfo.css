@@ -1,43 +1,52 @@
-.column {
+.health_tracking {
     display: grid;
-    float: left;
-    width: 33.3%;
-    height: 300px;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 0.1fr 0.1fr 0.1fr;
-    margin-bottom: 0px;
-    padding: 0 4 8px;
-}
-
-.row {
-    display: flex;
-    flex-wrap: wrap;
-    padding: 0 4 8px;
-    max-width: 500px;
-    margin: 0 auto;
-}
-
-.column img {
-    margin-top: 4px;
-    vertical-align: middle;
-}
-
-.box {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 2fr 2fr;
+    grid-gap: 5%;
+    float: inline-start;
+    text-align-last: center;
+    height: 400px;
     width: 100%;
-    text-align: center
+    padding: 45px 30px;
 }
-
 h1 {
-    text-align: center
+    text-align: center;
+    color: forestgreen;
 }
-.addbtn{
-    padding: 10px 18px;
-    width: auto;
-    position: relative;
+h4 {
+    text-align: center;
+    color: lightcoral;
+}
+.heartrate {
+    border-radius: 5%;
+    width: 90%;
+    height: 100%;
+    background-color: rgb(228, 67, 67);
+}
+.sleep {
+    border-radius: 5%;
+    width:90%;
+    height: 100%;
+    background-color: rgb(231, 228, 43);
+}
+.workout {
+    border-radius: 5%;
+    width: 90%;
+    height: 100%;
+    background-color: rgb(100, 198, 237);
+}
+.steps {
+    border-radius: 5%;
+    width:90%;
+    height: 100%;
+    background-color: rgb(48, 103, 204);
+}
+/*button {
     display: inline-block;
     left: 50%;
     transform: translate(-50%);
-}
+}*/
+
 #footerPlaceholder > #bottom-navbar {
     background-color: rgb(79, 134, 247);
     display: grid;
@@ -72,13 +81,16 @@ h1 {
     height: auto;
     margin-top: 10px;
 }
+/* footer css ends*/
+
+/* top navbar css starts */
 #navbarPlaceholder > #top-navbar {
     background-color: rgb(79, 134, 247);
 }
 
 .top-nav-icon {
     width: 5vh;
-    height: 20px;;
+    height: auto;
 }
 
 .navbar-profile {
