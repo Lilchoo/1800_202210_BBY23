@@ -61,7 +61,7 @@
 .nav-link:hover {
     color: rgb(79, 134, 247);
     background-color: rgb(253, 209, 120);
-    font-size: x-large;
+    font-size: large;
     font-weight: bold;
     transition: background-color font-size 1.5s;
     cursor: pointer;
