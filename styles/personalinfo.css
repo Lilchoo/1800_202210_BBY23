@@ -41,11 +41,6 @@ h4 {
     height: 100%;
     background-color: rgb(48, 103, 204);
 }
-/*button {
-    display: inline-block;
-    left: 50%;
-    transform: translate(-50%);
-}*/
 
 #footerPlaceholder > #bottom-navbar {
     background-color: rgb(79, 134, 247);

@@ -30,11 +30,11 @@
     <nav id="navbarPlaceholder"></nav>
 
     <div class="personalinfo">
-        <h1>Welcome ...</h1>
+        <h1>Welcome,...</h1>
     </div>
 
     <div class="status">
-        <h4>Your today's health status</h4>
+        <h4 class="health">Your today's health status</h4>
     </div>
     <div id="personalhealth">
         <div class="health_tracking">
@@ -42,28 +42,28 @@
                 <br><i class="fa fa-heartbeat" style="font-size: 48px"></i>
                 <br>
                 <h3>Heart Rate</h3>
-                <p><span class="counter">75</span>bpm</p>
+                <p><span class="counter" data-target="75">0</span> bpm</p>
             </div>
 
             <div class="sleep">
                 <br><i class="fa fa-moon" style="font-size: 48px"></i>
                 <br>
                 <h3>Sleep</h3>
-                <p><span class="counter">8</span>hours</p>
+                <p><span class="counter"data-target="8">0</span> hours</p>
             </div>
 
             <div class="workout">
                 <br><i class="fa fa-dumbbell" style="font-size: 48px"></i>
                 <br>
                 <h3>Workout</h3>
-                <p><span class="counter">4</span>hours</p>
+                <p><span class="counter"data-target="4">0</span> hours</p>
             </div>
 
             <div class="steps">
                 <br><i class="fa fa-walking" style="font-size: 48px"></i>
                 <br>
                 <h3>Steps</h3>
-                <p><span class="counter">800</span>steps</p>
+                <p><span class="counter"data-target="2000">0</span> steps</p>
             </div>
         </div>
         <div class="container">
@@ -76,6 +76,7 @@
 
     <script src="./scripts/firebaseAPI_TEAMBBY23.js"></script>
     <script src="./scripts/skeleton.js"></script>
+    <script src="./scripts/personal.js"></script>
 
 </body>
 
