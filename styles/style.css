@@ -67,11 +67,10 @@
 }
 
 .nav-link:hover {
-    color: rgb(79, 134, 247);
+    /* color: rgb(79, 134, 247);
     background-color: rgb(253, 209, 120);
-    font-size: large;
     font-weight: bold;
-    transition: background-color font-size 1.5s;
+    transition: background-color font-size 1.5s; */
     cursor: pointer;
 }
 
@@ -88,7 +87,7 @@
 }
 
 .top-nav-icon {
-    width: 5vh;
+    width: 4vh;
     height: auto;
 }
 
@@ -97,15 +96,12 @@
     border: transparent;
 }
 
-.nav-link {
-    color: white;
-}
 /* top navbar css ends */
 
 /* login.html css starts */
 .login-container > #login-title {
     text-align: center;
-    color: rgb(167,79,247);
+    color: #F74F20;
     margin: 5vh 0 5vh 0;
 }
 
@@ -113,7 +109,7 @@
 /* profile.html css starts */
 .profile-container > #profile-title {
     text-align: center;
-    color: rgb(167,79,247);
+    color: #F74F20;
     margin-top: 3vh;
 }
 
