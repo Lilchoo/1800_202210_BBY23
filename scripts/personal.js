@@ -16,10 +16,10 @@ counters.forEach(counter => {
     let updateCount = () => {
         let target = +counter.getAttribute('data-target');
         let count = +counter.innerText;
-    
+
         let increment = target / time;
 
-        if(count < target) {
+        if (count < target) {
             counter.innerText = count + increment;
             setTimeout(updateCount, 1);
         } else {
@@ -29,9 +29,8 @@ counters.forEach(counter => {
     updateCount();
 
 });
-
 let healthCondition = document.querySelector('.health');
 
 setTimeout(() => {
     healthCondition.innerText = "You are fit!"
-},2000);
+}, 2000);
