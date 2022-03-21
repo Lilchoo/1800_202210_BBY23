@@ -19,3 +19,21 @@ function displayUsers(collection) {
 }
 
 displayUsers("users");
+
+function insertTeam() {
+    firebase.auth().onAuthStateChanged(user => {
+        if (user) {                                                                 
+            console.log(user.uid);
+            currentUser = db.collection("users").doc(user.uid);
+            currentUser.get()
+                  .then(userDoc => {
+               var team_Name = userDoc.data().team;
+               console.log(team_Name);
+               document.getElementById("team-goes-here").innerText = team_Name; 
+            })
+        } else {
+            // No user is signed in.
+        }
+    });
+}
+insertTeam();
