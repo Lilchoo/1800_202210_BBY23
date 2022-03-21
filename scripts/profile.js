@@ -82,3 +82,12 @@ function saveProfile() {
         }
     })
 }
+
+function logOut() {
+    firebase.auth().signOut().then(function() {
+        console.log('Signed Out');
+        window.location.assign("index.html");
+      }, function(error) {
+        console.error('Sign Out Error', error);
+      });
+}
