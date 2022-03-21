@@ -30,10 +30,10 @@
     <nav id="navbarPlaceholder"></nav>
 
 
-    <div class="profile-container">
+    <div class="profile-container" id="profile-container">
         <h1 id="profile-title">Your Profile</h1>
-        <p id="profile-instruction">Click on "Edit" button to fill in!</p>
-        <form class="m-5 p-5">
+        <p id="profile-instruction"><small>Click on "Edit" button below to fill in!</small></p>
+        <form class="p-5" id="form">
             <fieldset class="mb-1" id="personalInfoFields" disabled>
                 <div class="form-group mb-3">
                     <label>Name</label>
@@ -72,12 +72,14 @@
                     <input type="text" id="teamInput" class="form-control" required placeholder="Enter your team">
                 </div>
             </fieldset>
-            <div class="d-flex justify-content-end mt-5">
+            <div class="d-flex justify-content-center mt-2 mb-1">
                 <button type="button" class="btn btn-secondary" onclick="editProfile()">Edit</button>
                 <span style="width: 10px"></span>
                 <button type="button" class="btn btn-success" onclick="saveProfile()">Save</button>
+                <span style="width: 10px"></span>
+                <button type="button" class="btn btn-dark" onclick="logOut()">Log out</button>
                 <!-- Test button to survey page -->
-                <a href="survey.html" class="btn btn-primary">Survey</a>
+                <!-- <a href="survey.html" class="btn btn-primary">Survey</a> -->
             </div>
         </form>
     </div>

@@ -32,7 +32,29 @@
         <input type="search" id="search" placeholder="Search Member..">
     </div>
 
-    <div class="Team">
+    <div class="container" style="width: 90%; margin-bottom: 4rem;">
+        <h1>Team <span id="team-goes-here" style="color: #F74F20"></span></h1>
+        <!-- Here is container for cards  -->
+        <div class="container p-2">
+            <div id="users-go-here" class="row row-cols-auto gap-1">
+            </div>
+        </div>
+</div>
+
+    <!-- Templates for general use, not displayed -->
+    <template id="userCardTemplate">
+        <div class="card my-2 mx-auto" style="width: 9rem;">
+            <img class="card-image card-img-top" src=" ..." alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                    card's content.</p>
+                <a class="btn btn-primary card-href justify-content-center">More...</a>
+            </div>
+        </div>
+    </template>
+
+    <!-- <div class="Team">
         <h1>My Team</h1>
     </div>
 
@@ -136,13 +158,14 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 
     <!--footer-->
     <nav id="footerPlaceholder"></nav>
 
     <script src="./scripts/firebaseAPI_TEAMBBY23.js"></script>
     <script src="./scripts/skeleton.js"></script>
+    <script src="./scripts/myTeam.js"></script>
 </body>
 
 </html>

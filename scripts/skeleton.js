@@ -7,3 +7,15 @@ function loadSkeleton(){
     console.log($('#footerPlaceholder').load('./text/footer.html'));
 }
 loadSkeleton();  //invoke the function
+
+
+function backToMain() {
+    firebase.auth().onAuthStateChanged(user => {
+        // Check if user is signed in:
+        if (user) {                                                                 
+            window.location.assign("main.html");
+        } else {
+            window.location.assign("index.html")
+        }
+    });
+}
