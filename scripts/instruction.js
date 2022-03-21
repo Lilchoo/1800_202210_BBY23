@@ -4,7 +4,7 @@ function confirmInstructions() {
     let Instructions = document.getElementById("instructions").value;
     console.log(Instructions);
 
-    firebase.auth().onAuthStatedChanged(user => {
+    firebase.auth().onAuthStateChanged(user => {
         if(user) {
             var currentUser = db.collection("users").doc(user.uid)
             var userID = user.uid;

@@ -11,7 +11,7 @@ function surveyResults() {
     let Question7 = document.querySelector('input[name="yes/no6"]:checked').value;
     console.log(Question1, Question2, Question3, Question4, Question5, Question6, Question7);
 
-    firebase.auth().onAuthStatedChanged(user => {
+    firebase.auth().onAuthStateChanged(user => {
         if(user) {
             var currentUser = db.collection("users").doc(user.uid)
             var userID = user.uid;
