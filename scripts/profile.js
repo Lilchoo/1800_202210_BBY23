@@ -70,6 +70,13 @@ function saveProfile() {
                 .then(() => {
                     console.log("Document successfully updated!");
                     document.getElementById('personalInfoFields').disabled = true;
+                    const form = document.getElementById("form");
+                    let div1 = document.createElement("div");
+                    div1.setAttribute("id", "survey-pop-up");
+                    form.appendChild(div1);
+                    let str = "<p class='mt-2'><b>Please complete this daily health check-up!</b></p>"
+                    + "<a href='survey.html' class='btn' id='survey-btn'>Check-up</a>";
+                    document.getElementById("survey-pop-up").innerHTML = str;
                 })
 
         }

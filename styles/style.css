@@ -119,5 +119,18 @@
 }
 .instructions-container > #instructions-title{
     text-align: center;
-    
+}
+
+#form {
+    margin: 0% 10% 10% 10%;
+}
+
+#survey-pop-up {
+    text-align: center;
+    justify-content: center;
+}
+
+#survey-btn {
+    background-color:#F74F20 ;
+    color: white;
 }
