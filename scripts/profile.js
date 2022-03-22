@@ -2,22 +2,17 @@ var currentUser
 
 function populateInfo() {
     firebase.auth().onAuthStateChanged(user => {
-        // Check if user is signed in:
         if (user) {
 
-            //go to the correct user document by referencing to the user uid
             currentUser = db.collection("users").doc(user.uid)
-            //get the document for current user.
             currentUser.get()
                 .then(userDoc => {
-                    //get the data fields of the user
                     var userName = userDoc.data().name;
                     var userEmail = userDoc.data().email;
                     var userDOB = userDoc.data().dob;
                     var userRole = userDoc.data().role;
                     var userTeam = userDoc.data().team;
 
-                    //if the data fields are not empty, then write them in to the form.
                     if (userName != null) {
                         document.getElementById("nameInput").value = userName;
                     }
@@ -36,7 +31,6 @@ function populateInfo() {
                 })
 
         } else {
-            // No user is signed in.
             console.log("No user is signed in");
         }
     });
@@ -55,11 +49,8 @@ function saveProfile() {
     userTeam = document.getElementById('teamInput').value;
 
     firebase.auth().onAuthStateChanged(user => {
-        // Check if user is signed in:
         if (user) {
-            //go to the correct user document by referencing to the user uid
             currentUser = db.collection("users").doc(user.uid)
-            //write/update user database
             currentUser.update({
                     name: userName,
                     email: userEmail,
