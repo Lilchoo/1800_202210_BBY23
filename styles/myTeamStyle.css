@@ -9,13 +9,13 @@
     padding: 0 4 8px;
 }
 
-.row {
+/* .row {
     display: flex;
     flex-wrap: wrap;
     padding: 0 4 8px;
     max-width: 500px;
     margin: 0 auto;
-}
+} */
 
 .column img {
     margin-top: 4px;
