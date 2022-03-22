@@ -2,22 +2,17 @@ var currentUser
 
 function populateInfo() {
     firebase.auth().onAuthStateChanged(user => {
-        // Check if user is signed in:
         if (user) {
 
-            //go to the correct user document by referencing to the user uid
             currentUser = db.collection("users").doc(user.uid)
-            //get the document for current user.
             currentUser.get()
                 .then(userDoc => {
-                    //get the data fields of the user
                     var userName = userDoc.data().name;
                     var userEmail = userDoc.data().email;
                     var userDOB = userDoc.data().dob;
                     var userRole = userDoc.data().role;
                     var userTeam = userDoc.data().team;
 
-                    //if the data fields are not empty, then write them in to the form.
                     if (userName != null) {
                         document.getElementById("nameInput").value = userName;
                     }
@@ -34,10 +29,9 @@ function populateInfo() {
                         document.getElementById("teamInput").value = userTeam;
                     }
                 })
-                
+
         } else {
-            // No user is signed in.
-            console.log ("No user is signed in");
+            console.log("No user is signed in");
         }
     });
 }
@@ -55,26 +49,36 @@ function saveProfile() {
     userTeam = document.getElementById('teamInput').value;
 
     firebase.auth().onAuthStateChanged(user => {
-        // Check if user is signed in:
         if (user) {
-
-            //go to the correct user document by referencing to the user uid
             currentUser = db.collection("users").doc(user.uid)
-
-            //write/update user database
             currentUser.update({
-                name: userName,
-                email: userEmail,
-                dob: userDOB,
-                role: userRole,
-                team: userTeam
-
-            })
-            .then(() => {
-                console.log("Document successfully updated!");
-                document.getElementById('personalInfoFields').disabled = true;
-            })
+                    name: userName,
+                    email: userEmail,
+                    dob: userDOB,
+                    role: userRole,
+                    team: userTeam
+                })
+                .then(() => {
+                    console.log("Document successfully updated!");
+                    document.getElementById('personalInfoFields').disabled = true;
+                    const form = document.getElementById("form");
+                    let div1 = document.createElement("div");
+                    div1.setAttribute("id", "survey-pop-up");
+                    form.appendChild(div1);
+                    let str = "<p class='mt-2'><b>Please complete this daily health check-up!</b></p>"
+                    + "<a href='survey.html' class='btn' id='survey-btn'>Check-up</a>";
+                    document.getElementById("survey-pop-up").innerHTML = str;
+                })
 
         }
     })
+}
+
+function logOut() {
+    firebase.auth().signOut().then(function() {
+        console.log('Signed Out');
+        window.location.assign("index.html");
+      }, function(error) {
+        console.error('Sign Out Error', error);
+      });
 }

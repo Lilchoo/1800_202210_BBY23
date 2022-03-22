@@ -1,40 +1,45 @@
-
-
 function surveyResults() {
     console.log("in")
-    let Question1 = document.querySelector('input[name="yes/no"]:checked').value;
-    let Question2 = document.querySelector('input[name="yes/no1"]:checked').value;
-    let Question3 = document.querySelector('input[name="yes/no2"]:checked').value;
-    let Question4 = document.querySelector('input[name="yes/no3"]:checked').value;
-    let Question5 = document.querySelector('input[name="yes/no4"]:checked').value;
-    let Question6 = document.querySelector('input[name="yes/no5"]:checked').value;
-    let Question7 = document.querySelector('input[name="yes/no6"]:checked').value;
-    console.log(Question1, Question2, Question3, Question4, Question5, Question6, Question7);
+    let Question1 = document.querySelector('input[name="yes/no1"]:checked').value;
+    let checkboxes = document.querySelectorAll('input[name="symptoms"]:checked');
+    let values = [];
+    checkboxes.forEach((checkbox) => {
+        values.push(checkbox.value);
+    });
+    console.log(values);
 
-    firebase.auth().onAuthStatedChanged(user => {
-        if(user) {
+    firebase.auth().onAuthStateChanged(user => {
+        if (user) {
             var currentUser = db.collection("users").doc(user.uid)
             var userID = user.uid;
-            
+
             currentUser.get()
                 .then(userDoc => {
                     var userEmail = userDoc.data().email;
                     db.collection("Results").add({
                         userID: userID,
-                        question1: Question1,
-                        question2: Question2,
-                        question3: Question3,
-                        question4: Question4,
-                        question5: Question5,
-                        question6: Question6,
-                        question7: Question7,
+                        close_contact: Question1,
+                        fever_chills: values.includes("fever_chills"),
+                        cough: values.includes("cough"),
+                        shortness_breath: values.includes("shortness_breath"),
+                        lost_sense_smell_taste: values.includes("lost_sense_smell_taste"),
+                        sorethroat: values.includes("sorethroat"),
+                        headache: values.includes("headache"),
+                        fatigue_tiredness: values.includes("fatigue_tiredness"),
+                        runnynose: values.includes("runnynose"),
+                        sneezing: values.includes("sneezing"),
+                        diarrhea: values.includes("diarrhea"),
+                        lost_appetite: values.includes("lost_appetite"),
+                        nausea_vomiting: values.includes("nausea_vomiting"),
+                        body_muscle_aches: values.includes("body_muscle_aches"),
+                        none: values.includes("none"),
                         timestamp: firebase.firestore.FieldValue.serverTimestamp()
-                    }).then(()=>{
-                        window.location.href= "main.html";
+                    }).then(() => {
+                        window.location.href = "main.html";
                     })
                 })
         } else {
-            // No user is signed in.
+            console.log("No user is sign in");
         }
     })
 }

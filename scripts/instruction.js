@@ -1,3 +1,4 @@
+HEAD
 var currentUser
 function populateInfo() {
     firebase.auth().onAuthStateChanged(user => {
@@ -26,10 +27,13 @@ function populateInfo() {
 }
 populateInfo();
 
+document.getElementById('instructions').disabled = false;
+// 7f1e0d560c713fa3af5aab717aca6a64ff1ecc65
+
 function confirmInstructions() {
-    console.log("in")
-    let Instructions = document.getElementById("instructions").value;
-    console.log(Instructions);
+    console.log("get instructions and store into db");
+    let i = document.getElementById("instructions").value;
+    console.log(i);
 
     firebase.auth().onAuthStateChanged(user => {
         if(user) {
@@ -41,10 +45,12 @@ function confirmInstructions() {
                     var userEmail = userDoc.data().email;
                     db.collection("instructions").add({
                         userID: userID,
-                        Instructions: Instructions
+                        instructions: i,
+                        timestamp: firebase.firestore.FieldValue.serverTimestamp()
 
                     }).then(() => {
-                        window.location.href = "main.html";
+                        // window.location.href = "main.html";
+                        document.getElementById('instructions').disabled = true;
                     })
                 })
 
@@ -52,5 +58,9 @@ function confirmInstructions() {
             // No user is signed in.
         }
     });
-
 }
+
+//<<<<<<< HEAD
+//}
+//=======
+///>>>>>>> 7f1e0d560c713fa3af5aab717aca6a64ff1ecc65
