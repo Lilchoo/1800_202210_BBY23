@@ -33,20 +33,20 @@ function surveyResults() {
                     db.collection("Results").add({
                         userID: userID,
                         close_contact: Question1,
-                        fever_chills: compareArrays(values),
-                        cough: compareArrays(values),
-                        shortness_breath: compareArrays(values),
-                        lost_sense_smell_taste: compareArrays(values),
-                        sorethroat: compareArrays(values),
-                        headache: compareArrays(values),
-                        fatigue_tiredness: compareArrays(values),
-                        runnynose: compareArrays(values),
-                        sneezing: compareArrays(values),
-                        diarrhea: compareArrays(values),
-                        lost_appetite: compareArrays(values),
-                        nausea_vomiting: compareArrays(values),
-                        body_muscle_aches: compareArrays(values),
-                        none: compareArrays(values),
+                        fever_chills: values.includes("fever_chills"),
+                        cough: values.includes("cough"),
+                        shortness_breath: values.includes("shortness_breath"),
+                        lost_sense_smell_taste: values.includes("lost_sense_smell_taste"),
+                        sorethroat: values.includes("sorethroat"),
+                        headache: values.includes("headache"),
+                        fatigue_tiredness: values.includes("fatigue_tiredness"),
+                        runnynose: values.includes("runnynose"),
+                        sneezing: values.includes("sneezing"),
+                        diarrhea: values.includes("diarrhea"),
+                        lost_appetite: values.includes("lost_appetite"),
+                        nausea_vomiting: values.includes("nausea_vomiting"),
+                        body_muscle_aches: values.includes("body_muscle_aches"),
+                        none: values.includes("none"),
                         timestamp: firebase.firestore.FieldValue.serverTimestamp()
                     }).then(() => {
                         window.location.href = "main.html";
@@ -57,30 +57,3 @@ function surveyResults() {
         }
     })
 }
-
-function compareArrays(input) {
-    for (var i=0; i < symptomsArray.length; i++) {
-        if (input[i] == symptomsArray[i]) {
-            return "True";
-        } else {
-            return "False";
-        }
-    }    
-}
-
-const symptomsArray = [                        
-"fever_chills",
-"cough",
-"shortness_breath",
-"lost_sense_smell_taste",
-"sorethroat",
-"headache",
-"fatigue_tiredness",
-"runnynose",
-"sneezing",
-"diarrhea",
-"lost_appetite",
-"nausea_vomiting",
-"body_muscle_aches",
-"none",    
-]
