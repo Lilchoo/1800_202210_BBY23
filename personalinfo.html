@@ -34,40 +34,42 @@
     </div>
 
     <div class="status">
-        <h4 class="health">Your today's health status</h4>
+        <h4 class="health">Your Personal health status</h4>
     </div>
+    <br>
     <div id="personalhealth">
-        <div class="health_tracking">
-            <div class="heartrate">
-                <br><i class="fa fa-heartbeat" style="font-size: 48px"></i>
-                <br>
-                <h3>Heart Rate</h3>
-                <p><span class="counter" data-target="75">0</span> bpm</p>
-            </div>
-
-            <div class="sleep">
-                <br><i class="fa fa-moon" style="font-size: 48px"></i>
-                <br>
-                <h3>Sleep</h3>
-                <p><span class="counter"data-target="8">0</span> hours</p>
-            </div>
-
-            <div class="workout">
-                <br><i class="fa fa-dumbbell" style="font-size: 48px"></i>
-                <br>
-                <h3>Workout</h3>
-                <p><span class="counter"data-target="4">0</span> hours</p>
-            </div>
-
-            <div class="steps">
-                <br><i class="fa fa-walking" style="font-size: 48px"></i>
-                <br>
-                <h3>Steps</h3>
-                <p><span class="counter"data-target="2000">0</span> steps</p>
-            </div>
+        <div class="health-status">
+            <h2>Status:
+                <a href="#" class="button"><b>...................</b></a>
+            </h2>
+            <h2>Symptoms:</h2>
         </div>
+        <div class="table-symptoms">
+            <table>
+                <tr>
+                    <th>Symptoms Types  </th>
+                    <th>  Reported Result</th>
+                </tr>
+                <hr>
+                <tr>
+                    <td>Sore Throat</td>
+                    <td>Yes/No</td>
+                </tr>
+                <tr>
+                    <td>Runny Nose</td>
+                    <td>Yes/No</td>
+                </tr>
+                <tr>
+                    <td>Loss of apetite</td>
+                    <td>Yes/No</td>
+                </tr>
+            </table>
+        </div>
+        <br>
+        <br>
         <div class="container">
-            <button type="button" class="btn btn-success" style="position: relative;left: 43%;">Next Step</button>
+            <button type="button" class="btn btn-primary" onclick="Recommendations()">Recommendations</button>
+            <button type="button" class="btn btn-success" onclick="SurveyAgain()">Survey Again</button>
         </div>
     </div>
 

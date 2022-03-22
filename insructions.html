@@ -40,29 +40,28 @@
         <h1 id="instructions-title">Enter Your Instructions</h1>
         <br>
         <form>
-                <div class="form-group mb-3">
-                    <label for="exampleFormControlTextarea1">Enter the Instructions</label>
-                    <textarea class="form-control" id="instructions" rows="5"></textarea>
-                </div>
-                <br>
-                <div class="d-flex justify-content-end mt-5">
-                    <button type="button" class="btn btn-lg btn-primary pull-left"
-                        onclick="confirmInstructions()">Confirm</button>
-                        <span style="width: 10px"></span>
-                    <button type="button" class="btn btn-lg btn-secondary pull-right"
-                        onclick="cancelInstructions()">Cancel</button>
-                </div>
+            <div class="form-group">
+                <label for="exampleFormControlTextarea1">Enter the Instructions</label>
+                <textarea class="form-control" id="instructions" rows="5"></textarea>
+            </div>
+            <br>
+            <div class="d-flex justify-content-end mt-5">
+                <button type="button" class="btn btn-lg btn-primary" onclick="editInstructions()">Edit</button>
+                <span style="width: 10px"></span>
+                <button type="button" class="btn btn-lg btn-success" onclick="confirmInstructions()">Confirm</button>
             </div>
         </form>
+    </div>
 
-        <!-- our own footer goes here-->
-        <nav id="footerPlaceholder"></nav>
 
-        <!---------------------------------------------->
-        <!-- Your own JavaScript functions go here    -->
-        <!---------------------------------------------->
-        <script src="./scripts/firebaseAPI_TEAMBBY23.js"></script>
-        <script src="./scripts/skeleton.js"></script>
-        <script src="./scripts/instruction.js"></script>
+    <!-- our own footer goes here-->
+    <nav id="footerPlaceholder"></nav>
+
+    <!---------------------------------------------->
+    <!-- Your own JavaScript functions go here    -->
+    <!---------------------------------------------->
+    <script src="./scripts/firebaseAPI_TEAMBBY23.js"></script>
+    <script src="./scripts/skeleton.js"></script>
+    <script src="./scripts/instruction.js"></script>
 
 </body>
