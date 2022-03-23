@@ -12,17 +12,19 @@ h4 {
 }
 
 h2 {
-    text-align: left;
+    margin-left: 5%;
     color: forestgreen;
 }
 
 table {
     text-align: center;
-    
+    width: 35%;
+    margin-left: 5%;
 }
 
 .container {
     display: block;
+    margin-left: 13%;
 }
 
 #footerPlaceholder>#bottom-navbar {
