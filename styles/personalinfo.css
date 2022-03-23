@@ -1,48 +1,31 @@
-.health_tracking {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 2fr 2fr;
-    grid-gap: 5%;
-    float: inline-start;
-    text-align-last: center;
-    height: 400px;
-    width: 100%;
-    padding: 45px 30px;
-}
 h1 {
     text-align: center;
-    color: forestgreen;
-}
-h4 {
-    text-align: center;
-    color: lightcoral;
-}
-.heartrate {
-    border-radius: 5%;
-    width: 90%;
-    height: 100%;
-    background-color: rgb(228, 67, 67);
-}
-.sleep {
-    border-radius: 5%;
-    width:90%;
-    height: 100%;
-    background-color: rgb(231, 228, 43);
-}
-.workout {
-    border-radius: 5%;
-    width: 90%;
-    height: 100%;
-    background-color: rgb(100, 198, 237);
-}
-.steps {
-    border-radius: 5%;
-    width:90%;
-    height: 100%;
-    background-color: rgb(48, 103, 204);
 }
 
-#footerPlaceholder > #bottom-navbar {
+.button {
+    color: brown;
+    background-color: brown;
+}
+
+h4 {
+    text-align: center;
+}
+
+h2 {
+    text-align: left;
+    color: forestgreen;
+}
+
+table {
+    text-align: center;
+    
+}
+
+.container {
+    display: block;
+}
+
+#footerPlaceholder>#bottom-navbar {
     background-color: rgb(79, 134, 247);
     display: grid;
     grid-template-columns: 20vw 20vw 20vw 20vw 20vw;
@@ -53,9 +36,10 @@ h4 {
 #nav-item1 {
     grid-column: 2;
 }
-.nav-link{
+
+.nav-link {
     color: white;
-    font-size: large;   
+    font-size: large;
     margin-top: 1px;
     margin-bottom: 0px;
     border-radius: 30px;
@@ -76,10 +60,11 @@ h4 {
     height: auto;
     margin-top: 10px;
 }
+
 /* footer css ends*/
 
 /* top navbar css starts */
-#navbarPlaceholder > #top-navbar {
+#navbarPlaceholder>#top-navbar {
     background-color: rgb(79, 134, 247);
 }
 
