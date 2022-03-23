@@ -8,7 +8,7 @@
 /* survey html css ends*/
 
 /* health html css start*/
-.container {
+.health-container {
     display: grid;
     border: solid;
     border-color: red;

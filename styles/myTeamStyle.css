@@ -1,4 +1,4 @@
-.column {
+/* .column {
     display: grid;
     float: left;
     width: 33.3%;
@@ -7,7 +7,7 @@
     grid-template-rows: 0.1fr 0.1fr 0.1fr;
     margin-bottom: 0px;
     padding: 0 4 8px;
-}
+} */
 
 /* .row {
     display: flex;
@@ -17,10 +17,10 @@
     margin: 0 auto;
 } */
 
-.column img {
+/* .column img {
     margin-top: 4px;
     vertical-align: middle;
-}
+} */
 
 .box {
     width: 100%;

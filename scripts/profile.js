@@ -32,6 +32,15 @@ function populateInfo() {
 
         } else {
             console.log("No user is signed in");
+            str = "<h1 class='text-dark my-3 ' id='profile-title'>Please log in!</h1>"
+            + "<div class='d-grid gap-2 d-sm-flex justify-content-sm-center'>"
+            + "<button type='button' class='btn btn-lg mx-auto my-3' style='background-color: #F74F20; max-width: fit-content'><a href='./login.html'"
+            + "class='text-light text-decoration-none'>Log in</a></button></div>" + "<div class='mt-4 text-center'><img src='./images/login.png' style='max-width: 250px;'/></div>"
+            document.getElementById("profile-container").innerHTML = str;
+            
+            // var intID = setInterval(function() {
+            //     window.location.assign("index.html");},3000);
+            // setTimeout(function() { clearInterval(intID); }, 3000);
         }
     });
 }
