@@ -35,8 +35,20 @@ function surveyResults() {
                         none: values.includes("none"),
                         timestamp: firebase.firestore.FieldValue.serverTimestamp()
                     }).then(() => {
-                        window.location.href = "main.html";
+                        //A thank-you message shows up
+                        str = "<h1 class='' id='profile-title' style='color: #F74F20'>Thanks for your submission! Let's see your result now.</h1>";
+                        document.getElementById("after-submit").innerHTML = str;
+                        
+                    }).then(() => {
+                        //Navigates user to the main page after 5 sec
+                        var intID = setInterval(function () {
+                            window.location.assign("main.html");
+                        }, 5000);
+                        setTimeout(function () {
+                            clearInterval(intID);
+                        }, 5000);
                     })
+                        
                 })
         } else {
             console.log("No user is sign in");
