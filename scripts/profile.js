@@ -75,7 +75,7 @@ function saveProfile() {
                     div1.setAttribute("id", "survey-pop-up");
                     form.appendChild(div1);
                     let str = "<p class='mt-2'><b>Please complete this daily health check-up!</b></p>"
-                    + "<a href='survey.html' class='btn' id='survey-btn'>Check-up</a>";
+                    + "<a href='survey.html' class='btn mb-3' id='survey-btn'>Check-up</a>";
                     document.getElementById("survey-pop-up").innerHTML = str;
                 })
 

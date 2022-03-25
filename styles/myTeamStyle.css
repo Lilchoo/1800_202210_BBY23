@@ -1,26 +1,3 @@
-/* .column {
-    display: grid;
-    float: left;
-    width: 33.3%;
-    height: 300px;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 0.1fr 0.1fr 0.1fr;
-    margin-bottom: 0px;
-    padding: 0 4 8px;
-} */
-
-/* .row {
-    display: flex;
-    flex-wrap: wrap;
-    padding: 0 4 8px;
-    max-width: 500px;
-    margin: 0 auto;
-} */
-
-/* .column img {
-    margin-top: 4px;
-    vertical-align: middle;
-} */
 
 .box {
     width: 100%;
@@ -40,7 +17,7 @@ h1 {
 }
 /* footer css starts*/
 #footerPlaceholder > #bottom-navbar {
-    background-color: rgb(79, 134, 247);
+    background-color: #08415C;
     display: grid;
     grid-template-columns: 20vw 20vw 20vw 20vw 20vw;
     grid-template-rows: 1fr;
@@ -60,10 +37,6 @@ h1 {
 }
 
 .nav-link:hover {
-    /* color: rgb(79, 134, 247);
-    background-color: rgb(253, 209, 120);
-    font-weight: bold;
-    transition: background-color font-size 1.5s; */
     cursor: pointer;
 }
 
@@ -76,7 +49,7 @@ h1 {
 
 /* top navbar css starts */
 #navbarPlaceholder > #top-navbar {
-    background-color: rgb(79, 134, 247);
+    background-color: #08415C;
 }
 
 .top-nav-icon {
