@@ -27,8 +27,9 @@ table {
     margin-left: 13%;
 }
 
-#footerPlaceholder>#bottom-navbar {
-    background-color: rgb(79, 134, 247);
+/* footer css starts*/
+#footerPlaceholder > #bottom-navbar {
+    background-color: #08415C;
     display: grid;
     grid-template-columns: 20vw 20vw 20vw 20vw 20vw;
     grid-template-rows: 1fr;
@@ -38,10 +39,9 @@ table {
 #nav-item1 {
     grid-column: 2;
 }
-
-.nav-link {
+.nav-link{
     color: white;
-    font-size: large;
+    font-size: large;   
     margin-top: 1px;
     margin-bottom: 0px;
     border-radius: 30px;
@@ -49,11 +49,6 @@ table {
 }
 
 .nav-link:hover {
-    color: rgb(79, 134, 247);
-    background-color: rgb(253, 209, 120);
-    font-size: x-large;
-    font-weight: bold;
-    transition: background-color font-size 1.5s;
     cursor: pointer;
 }
 
@@ -62,16 +57,15 @@ table {
     height: auto;
     margin-top: 10px;
 }
-
 /* footer css ends*/
 
 /* top navbar css starts */
-#navbarPlaceholder>#top-navbar {
-    background-color: rgb(79, 134, 247);
+#navbarPlaceholder > #top-navbar {
+    background-color: #08415C;
 }
 
 .top-nav-icon {
-    width: 5vh;
+    width: 4vh;
     height: auto;
 }
 
@@ -80,6 +74,4 @@ table {
     border: transparent;
 }
 
-.nav-link {
-    color: white;
-}
+/* top navbar css ends */
