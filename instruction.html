@@ -39,15 +39,14 @@
         <br>
         <h1 id="instructions-title">Enter Your Instructions</h1>
         <br>
-        <form>
+        <form id="instruction-form">
             <div class="form-group">
                 <label for="exampleFormControlTextarea1">Enter the Instructions</label>
                 <textarea class="form-control" id="instructions" rows="5"></textarea>
             </div>
             <br>
-            <div class="d-flex justify-content-end mt-5">
-                <button type="button" class="btn btn-lg btn-primary" onclick="editInstructions()">Edit</button>
-                <span style="width: 10px"></span>
+            <div class="d-flex justify-content-end mt-5 gap-2">
+                <button type="button" class="btn btn-lg btn-secondary" onclick="editInstructions()">Edit</button>
                 <button type="button" class="btn btn-lg btn-success" onclick="confirmInstructions()">Confirm</button>
             </div>
         </form>

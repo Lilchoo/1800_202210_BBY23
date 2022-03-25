@@ -5,6 +5,25 @@
     border-radius: .5rem;
     padding: .5rem;   
 }
+
+#survey-container {
+    height: 100vh;
+    display: grid;
+    grid-template-rows: 40% 60%;
+}
+
+#message-after-submission {
+    grid-row: 1;
+}
+
+#message-after-submission >h1 {
+    font-size: 40px;
+}
+
+#thank-you-image {
+    grid-row: 2;
+    margin: auto 0 0 0;
+}
 /* survey html css ends*/
 
 /* health html css start*/
@@ -47,7 +66,7 @@
 
 /* footer css starts*/
 #footerPlaceholder > #bottom-navbar {
-    background-color: rgb(79, 134, 247);
+    background-color: #08415C;
     display: grid;
     grid-template-columns: 20vw 20vw 20vw 20vw 20vw;
     grid-template-rows: 1fr;
@@ -67,10 +86,6 @@
 }
 
 .nav-link:hover {
-    /* color: rgb(79, 134, 247);
-    background-color: rgb(253, 209, 120);
-    font-weight: bold;
-    transition: background-color font-size 1.5s; */
     cursor: pointer;
 }
 
@@ -83,7 +98,7 @@
 
 /* top navbar css starts */
 #navbarPlaceholder > #top-navbar {
-    background-color: rgb(79, 134, 247);
+    background-color: #08415C;
 }
 
 .top-nav-icon {
@@ -110,20 +125,25 @@
 .profile-container > #profile-title {
     text-align: center;
     color: #F74F20;
-    margin-top: 3vh;
+    margin-top: 2vh;
 }
 
 #profile-instruction {
     text-align: center;
     margin: 1vh 0 -5vh 0;
 }
+
+/* instruction.html starts */
 .instructions-container > #instructions-title{
     text-align: center;
 }
 
-#form {
-    margin: 0% 10% 10% 10%;
+#instruction-form {
+    width: 90%;
+    margin: 0 auto 0 auto;
 }
+
+/* instruction.html ends */
 
 #survey-pop-up {
     text-align: center;
