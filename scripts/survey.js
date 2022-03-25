@@ -54,9 +54,7 @@ function surveyResults() {
                             survey_timestamp: firebase.firestore.FieldValue.serverTimestamp()
                         })
 
-                        db.collection("users").doc(user.uid).get()
-                        
-                        .then(() => {
+                        db.collection("users").doc(user.uid).get().then(() => {
                             let test = userDoc.data().survey_timestamp.toDate();
                             console.log(test);
                         })
