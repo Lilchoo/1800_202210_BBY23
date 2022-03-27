@@ -43,18 +43,18 @@
             <div class="form-group">
                 <label for="exampleFormControlTextarea1">Enter the Instructions</label>
                 <textarea class="form-control" id="instructions" rows="5"></textarea>
-                <!--<label for="exampleFormControlTextarea1">Enter the Date</label>
-                <textarea class="form-control" id="instructions" rows="5"></textarea>-->
+                <br>
                 <div class="form-group mb-3">
                     <label>Choose a Date</label>
-                    <input type="date" id="DOBInput" class="form-control" required placeholder="Enter Date">
-                </div>
+                    <input type="date" id="DateInput" class="form-control" required placeholder="Enter Date">
+            </div>
             </div>
             <br>
             <div class="instruction-btn">
-                <span style="display: block; margin-left: 33%;"></span>
+                <span style="margin-left: 80%;"></span>
                 <button type="button" class="btn btn-secondary" onclick="editInstructions()">Edit</button>
-                <a class="btn  btn-success" href="schedule.html">Confirm</a>
+                <span style="width: 10px;"></span>
+                <button type="button" class="btn btn-success" onclick="confirmInstructions()">Confirm</button>
             </div>
         </form>
     </div>

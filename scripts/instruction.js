@@ -33,6 +33,7 @@ document.getElementById('instructions').disabled = false;
 function confirmInstructions() {
     console.log("get instructions and store into db");
     let i = document.getElementById("instructions").value;
+    let d = document.getElementById("DateInput").value;
     console.log(i);
 
     firebase.auth().onAuthStateChanged(user => {
@@ -46,6 +47,7 @@ function confirmInstructions() {
                     db.collection("instructions").add({
                         userID: userID,
                         instructions: i,
+                        date: d,
                         timestamp: firebase.firestore.FieldValue.serverTimestamp()
 
                     }).then(() => {
