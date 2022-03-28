@@ -1,4 +1,3 @@
-HEAD
 var currentUser
 function populateInfo() {
     firebase.auth().onAuthStateChanged(user => {
@@ -28,11 +27,11 @@ function populateInfo() {
 populateInfo();
 
 document.getElementById('instructions').disabled = false;
-// 7f1e0d560c713fa3af5aab717aca6a64ff1ecc65
 
 function confirmInstructions() {
     console.log("get instructions and store into db");
     let i = document.getElementById("instructions").value;
+    let d = document.getElementById("DateInput").value;
     console.log(i);
 
     firebase.auth().onAuthStateChanged(user => {
@@ -46,6 +45,7 @@ function confirmInstructions() {
                     db.collection("instructions").add({
                         userID: userID,
                         instructions: i,
+                        date: d,
                         timestamp: firebase.firestore.FieldValue.serverTimestamp()
 
                     }).then(() => {
@@ -59,8 +59,3 @@ function confirmInstructions() {
         }
     });
 }
-
-//<<<<<<< HEAD
-//}
-//=======
-///>>>>>>> 7f1e0d560c713fa3af5aab717aca6a64ff1ecc65
