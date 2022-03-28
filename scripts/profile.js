@@ -94,7 +94,7 @@ function logOut() {
         }, function (error) {
             console.error('Sign Out Error', error);
         })
-    }, 40000);
+    }, 5000);
 }
 
 
