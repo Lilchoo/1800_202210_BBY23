@@ -74,14 +74,6 @@ function surveyResults() {
                         + "<div id='thank-you-image'><img src='/images/thank-you.jpg' width='100%'/></div>";
                         
                         div.innerHTML = str;
-                    }).then(() => {
-                        //Navigates user to the main page after 5 sec
-                        // var intID = setInterval(function () {
-                        //     window.location.assign("main.html");
-                        // }, 5000);
-                        // setTimeout(function () {
-                        //     clearInterval(intID);
-                        // }, 5000);
                     })
                         
                 })
