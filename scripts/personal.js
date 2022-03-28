@@ -22,3 +22,7 @@ function insertName() {
     });
 }
 insertName();
+
+function Recommendations() {
+    window.location.assign("recommendation.html");
+}
