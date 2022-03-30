@@ -1,23 +1,25 @@
-// Stores survey results to Datastore
 function surveyResults(currentUser, userID) {
     console.log("in")
-    let Question1 = document.querySelector('input[name="yes/no1"]:checked').value;
+    let Question1 = document.querySelector('input[name="yes/no"]:checked').value;
+    let Question2 = document.querySelector('input[name="yes/no1"]:checked').value;
     let checkboxes1 = document.querySelectorAll('input[name="symptoms1"]:checked');
-    let values1 = [];
+    values1 = [];
     checkboxes1.forEach((checkbox) => {
         values1.push(checkbox.value);
     });
+    console.log(Question1);
+    console.log(Question2);
     console.log(values1);
 
     let checkboxes2 = document.querySelectorAll('input[name="symptoms2"]:checked');
-    let values2 = [];
+    values2 = [];
     checkboxes2.forEach((checkbox) => {
         values2.push(checkbox.value);
     });
     console.log(values2);
 
     let checkboxes3 = document.querySelectorAll('input[name="symptoms3"]:checked');
-    let values3 = [];
+    values3 = [];
     checkboxes3.forEach((checkbox) => {
         values3.push(checkbox.value);
     });
@@ -34,7 +36,8 @@ function surveyResults(currentUser, userID) {
                     console.log(userID);
                     db.collection("Results").add({
                         userID: userID,
-                        close_contact: Question1,
+                        emergency_attention: Question1,
+                        close_contact: Question2,
                         fever_chills: values1.includes("fever_chills"),
                         cough: values1.includes("cough"),
                         shortness_breath: values1.includes("shortness_breath"),
@@ -81,7 +84,7 @@ function surveyResults(currentUser, userID) {
 
 };
 
-//Check if user has done survey today
+// Check if user has done survey today
 function hasSurveyCompletedToday() {
     firebase.auth().onAuthStateChanged(user => {
         if (user) {
@@ -138,3 +141,5 @@ function surveyAgain() {
         }
     })
 };
+
+
