@@ -66,7 +66,7 @@
 
 /* footer css starts*/
 #footerPlaceholder > #bottom-navbar {
-    background-color: #08415C;
+    background-color: #1D3557;
     display: grid;
     grid-template-columns: 20vw 20vw 20vw 20vw 20vw;
     grid-template-rows: 1fr;
@@ -87,6 +87,7 @@
 
 .nav-link:hover {
     cursor: pointer;
+    color: #F1FAEE;
 }
 
 .bottom-nav-icon {
@@ -98,7 +99,7 @@
 
 /* top navbar css starts */
 #navbarPlaceholder > #top-navbar {
-    background-color: #08415C;
+    background-color: #1D3557;
 }
 
 .top-nav-icon {
@@ -116,7 +117,7 @@
 /* login.html css starts */
 .login-container > #login-title {
     text-align: center;
-    color: #F74F20;
+    color: #E63946;
     margin: 5vh 0 5vh 0;
 }
 
@@ -124,7 +125,7 @@
 /* profile.html css starts */
 .profile-container > #profile-title {
     text-align: center;
-    color: #F74F20;
+    color: #E63946;
     margin-top: 2vh;
 }
 

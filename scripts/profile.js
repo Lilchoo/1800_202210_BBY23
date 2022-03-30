@@ -34,7 +34,7 @@ function populateInfo() {
             console.log("No user is signed in");
             str = "<h1 class='text-dark my-3 ' id='profile-title'>Please log in!</h1>" +
                 "<div class='d-grid gap-2 d-sm-flex justify-content-sm-center'>" +
-                "<button type='button' class='btn btn-lg mx-auto my-3' style='background-color: #F74F20; max-width: fit-content'><a href='./login.html'" +
+                "<button type='button' class='btn btn-lg mx-auto my-3' style='background-color: #E63946; max-width: fit-content'><a href='./login.html'" +
                 "class='text-light text-decoration-none'>Log in</a></button></div>" + "<div class='mt-4 text-center'><img src='./images/login.png' style='max-width: 250px;'/></div>"
             document.getElementById("profile-container").innerHTML = str;
 
@@ -101,7 +101,7 @@ function logOut() {
 function a() {
     let div = document.getElementById("profile-container");
 
-    str = "<div class='text-center h1 mx-2 my-2' style='color: #F74F20'>You are logged out. See you later!</div>"
+    str = "<div class='text-center h1 mx-2 my-2' style='color: #E63946'>You are logged out. See you later!</div>"
     + "<br/><div class='text-center my-3'><img src='/images/thank-you.jpg' style = 'width: 80vw; height : auto, '/></div>";
 
     div.innerHTML = str;

@@ -17,7 +17,7 @@ h1 {
 }
 /* footer css starts*/
 #footerPlaceholder > #bottom-navbar {
-    background-color: #08415C;
+    background-color: #1D3557;
     display: grid;
     grid-template-columns: 20vw 20vw 20vw 20vw 20vw;
     grid-template-rows: 1fr;
@@ -38,6 +38,7 @@ h1 {
 
 .nav-link:hover {
     cursor: pointer;
+    color: #F1FAEE;
 }
 
 .bottom-nav-icon {
@@ -49,7 +50,7 @@ h1 {
 
 /* top navbar css starts */
 #navbarPlaceholder > #top-navbar {
-    background-color: #08415C;
+    background-color: #1D3557;
 }
 
 .top-nav-icon {
