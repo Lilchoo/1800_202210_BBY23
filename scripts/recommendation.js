@@ -3,8 +3,10 @@ var currentUser;
 firebase.auth().onAuthStateChanged(user => {
     if (user) {
         currentUser = db.collection("users").doc(user.uid);
+        var userTest_ID = user.uid
+        console.log(userTest_ID);
         console.log(currentUser);
-        read_display_Recommendation(currentUser);
+        read_display_Recommendation(currentUser, userTest_ID);
         insertName();
 
     } else {
@@ -16,10 +18,12 @@ firebase.auth().onAuthStateChanged(user => {
 
 
 
-function read_display_Recommendation(currentUser) {
+function read_display_Recommendation(currentUser, userTest_ID) {
     
     var currentResults = db.collection("Results")
-    var userID = currentUser;
+    
+    console.log(userTest_ID);
+    
 
     currentResults.get()
     .then(snap => {
@@ -28,9 +32,9 @@ function read_display_Recommendation(currentUser) {
             console.log(documentID);
             db.collection("Results").doc(documentID).get() // get data of this document
                 .then(resultDoc => {
-                    var id = resultDoc.data().userID;
-                    console.log(id);
-                    if (id == userID) {
+                    var resultsUserID = resultDoc.data().userID;
+                    
+                    if (resultsUserID == userTest_ID) {
                         db.collection("Results").doc(documentID).get()
                             .then(thisDoc => {
                                 console.log("Where is this data?" + thisDoc.data().cough);
