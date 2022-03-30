@@ -98,7 +98,7 @@
 /* footer css ends*/
 
 /* top navbar css starts */
-#navbarPlaceholder > #top-navbar {
+#top-navbar {
     background-color: #1D3557;
 }
 
@@ -153,6 +153,36 @@
 }
 
 #survey-btn {
-    background-color:#F74F20 ;
+    background-color:#E63946 ;
     color: white;
+}
+
+/* assignInstruction.html starts */
+#assignInstruction-container {
+    display: grid;
+    height: 80vh;
+    grid-template-columns: 1;
+    grid-template-rows: 50% 50%;
+}
+
+#member-info-box {
+    grid-row: 1;
+    background-color: lightgray;
+    margin: 2%;
+}
+
+#instruction-box {
+    grid-row: 2;
+    background-color: bisque;
+    margin: 2%;
+    display: grid;
+    grid-template-rows: 75% 25%;
+}
+
+#instruction-details {
+    grid-row: 1;
+}
+
+#assignInstruction-btn {
+    grid-row: 2;
 }

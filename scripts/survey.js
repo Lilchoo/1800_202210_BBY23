@@ -24,7 +24,7 @@ function surveyResults(currentUser, userID) {
     console.log(values3);
 
     firebase.auth().onAuthStateChanged(user => {
-        if (user) {
+        if (user.isNewUser) { //if user is new, add new record of survey result to "Results" collection
             var currentUser = db.collection("users").doc(user.uid)
             var userID = user.uid;
 
@@ -51,7 +51,7 @@ function surveyResults(currentUser, userID) {
                         none: values3.includes("none"),
                         timestamp: firebase.firestore.FieldValue.serverTimestamp()
                     }).then(() => {
-                        db.collection("users").doc(user.uid).update({
+                        db.collection("users").doc(user.uid).add({
                             surveyCompleted: "True",
                             survey_timestamp: firebase.firestore.FieldValue.serverTimestamp()
                         })
@@ -61,20 +61,51 @@ function surveyResults(currentUser, userID) {
                             console.log(test);
                         })
 
-                    }).then(() => {
-                        //A thank-you message displays
-                        let div = document.getElementById("survey-container");
+                    }).then(displayThankYou())
 
-                        str = "<div id='message-after-submission'><h1 class='mx-3 my-5 text-center'>Thanks for your submission!</h1>" +
-                            "<div class='d-grid gap-2 d-sm-flex justify-content-sm-center text-center w-75 mx-auto'>" +
-                            "<button type='button' class='btn btn-lg btn-secondary mx-auto my-3' style='background-color: ; max-width: fit-content; font-size: 25px' onclick='surveyAgain()'><a class='text-light text-decoration-none'>Survey again</a></button>" +
-                            "<button type='button' class='btn btn-lg mx-auto my-3' style='background-color: #E63946; max-width: fit-content; font-size: 25px'><a href='./personalHealth.html' class='text-light text-decoration-none'>See Result</a></button>" +
-                            "<button type='button' class='btn btn-lg mx-auto my-3 btn-success' style='max-width: fit-content; font-size: 25px'><a href='./main.html' class='text-light text-decoration-none'>Back To Home</a></button></div></div>" +
-                            "<div id='thank-you-image'><img src='/images/thank-you.jpg' width='100%'/></div>";
+                })
+        } else { // if user has already had an account, update new results to its original Results document
+            var currentResult = db.collection("Results")
+            var userID = user.uid;
 
-                        div.innerHTML = str;
+            currentResult.get()
+                .then(snap => {
+                    snap.forEach(userDoc => {
+                        var documentID = userDoc.id; //get the id of a survey result document
+                        console.log(documentID);
+                        db.collection("Results").doc(documentID).get() // get data of this document
+                            .then(resultDoc => {
+                                var id = resultDoc.data().userID; // get userID that is stored in the survey result document
+                                console.log(id);
+                                if (id == userID) { //if userID in the survey result document is the same as the id of this user, update new results
+                                    db.collection("Results").doc(documentID).update({
+                                        userID: userID,
+                                        close_contact: Question1,
+                                        fever_chills: values1.includes("fever_chills"),
+                                        cough: values1.includes("cough"),
+                                        shortness_breath: values1.includes("shortness_breath"),
+                                        lost_sense_smell_taste: values1.includes("lost_sense_smell_taste"),
+                                        sorethroat: values2.includes("sorethroat"),
+                                        headache: values2.includes("headache"),
+                                        fatigue_tiredness: values2.includes("fatigue_tiredness"),
+                                        runnynose: values2.includes("runnynose"),
+                                        sneezing: values2.includes("sneezing"),
+                                        diarrhea: values2.includes("diarrhea"),
+                                        lost_appetite: values2.includes("lost_appetite"),
+                                        nausea_vomiting: values2.includes("nausea_vomiting"),
+                                        body_muscle_aches: values2.includes("body_muscle_aches"),
+                                        none: values3.includes("none"),
+                                        timestamp: firebase.firestore.FieldValue.serverTimestamp()
+                                    }).then(() => {
+                                        db.collection("users").doc(user.uid).update({
+                                            surveyCompleted: "True",
+                                            survey_timestamp: firebase.firestore.FieldValue.serverTimestamp()
+                                        })
+                                    }).then(displayThankYou())
+                                }
+                            })
+
                     })
-
                 })
         }
     })
@@ -95,8 +126,8 @@ function hasSurveyCompletedToday() {
                     var currentTime = firebase.firestore.Timestamp.fromDate(new Date());
                     console.log("surveyCompleted " + surveyCompleted);
                     console.log("survey last updated: " + lastUpdated.toDate());
-                    console.log("current time " + currentTime);
-                    // console.log((new Date()).getHours());
+                    console.log("current time " + currentTime.toDate());
+
                     if (surveyCompleted == "True") {
                         if (Math.abs(lastUpdated.seconds - currentTime.seconds) < 86400) {
                             console.log("user has done survey today");
@@ -134,7 +165,21 @@ function surveyAgain() {
             }).then(() => {
                 window.location.reload();
             })
-            
+
         }
     })
 };
+
+// Display thank-you message after survey submission
+function displayThankYou() {
+    let div = document.getElementById("survey-container");
+
+    str = "<div id='message-after-submission'><h1 class='mx-3 my-5 text-center'>Thanks for your submission!</h1>" +
+        "<div class='d-grid gap-2 d-sm-flex justify-content-sm-center text-center w-75 mx-auto'>" +
+        "<button type='button' class='btn btn-lg btn-secondary mx-auto my-3' style='background-color: ; max-width: fit-content; font-size: 25px' onclick='surveyAgain()'><a class='text-light text-decoration-none'>Survey again</a></button>" +
+        "<button type='button' class='btn btn-lg mx-auto my-3' style='background-color: #E63946; max-width: fit-content; font-size: 25px'><a href='./personalHealth.html' class='text-light text-decoration-none'>See Result</a></button>" +
+        "<button type='button' class='btn btn-lg mx-auto my-3 btn-success' style='max-width: fit-content; font-size: 25px'><a href='./main.html' class='text-light text-decoration-none'>Back To Home</a></button></div></div>" +
+        "<div id='thank-you-image'><img src='/images/thank-you.jpg' width='100%'/></div>";
+
+    div.innerHTML = str;
+}
