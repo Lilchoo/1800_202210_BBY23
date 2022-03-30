@@ -17,10 +17,32 @@ firebase.auth().onAuthStateChanged(user => {
 
 
 function read_display_Recommendation(currentUser) {
-    currentUser.get()
-    .then(testUser => {
-        testUser.
+    
+    var currentResults = db.collection("Results")
+    var userID = currentUser;
+
+    currentResults.get()
+    .then(snap => {
+        snap.forEach(userDoc => {
+            var documentID = userDoc.id; //get the id of a survey result document
+            console.log(documentID);
+            db.collection("Results").doc(documentID).get() // get data of this document
+                .then(resultDoc => {
+                    var id = resultDoc.data().userID;
+                    console.log(id);
+                    if (id == userID) {
+                        db.collection("Results").doc(documentID).get()
+                            .then(thisDoc => {
+                                console.log("Where is this data?" + thisDoc.data().cough);
+                            })
+                    }
+                })
+        })
     })
+    // currentUser.get()
+    // .then(testUser => {
+    //     testUser.
+    // })
 
 
 

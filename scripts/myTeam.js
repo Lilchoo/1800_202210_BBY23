@@ -19,13 +19,17 @@ function displayUsers(collection) {
     .then(snap => {
         var i=1;
         snap.forEach(doc => {
-            var title = doc.data().name;
-            var details = doc.data().role;
+            var userID = doc.id;
+            console.log(userID);
+            var memberName = doc.data().name;
+            var role = doc.data().role;
             let newcard = cardTemplate.content.cloneNode(true);
 
-            newcard.querySelector('.card-title').innerHTML = title;
-            newcard.querySelector('.card-text').innerHTML = details;
+            newcard.querySelector('.card-title').innerHTML = memberName;
+            newcard.querySelector('.card-text').innerHTML = role;
             newcard.querySelector('.card-image').src = "./images/img" + i + ".jfif"; 
+
+            newcard.querySelector('.more').href = "assignInstruction.html?memberName=" + memberName + "&id=" + userID;
 
             document.getElementById(collection + "-go-here").appendChild(newcard);
             i++;
