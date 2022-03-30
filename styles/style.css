@@ -167,13 +167,13 @@
 
 #member-info-box {
     grid-row: 1;
-    background-color: lightgray;
+    background-color: #F1FAEE;
     margin: 2%;
 }
 
 #instruction-box {
     grid-row: 2;
-    background-color: bisque;
+    background-color: #A8DADC;
     margin: 2%;
     display: grid;
     grid-template-rows: 75% 25%;
