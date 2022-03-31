@@ -23,6 +23,7 @@ function surveyResults(currentUser, userID) {
 
 
     firebase.auth().onAuthStateChanged(user => {
+<<<<<<< HEAD
         // doSurveyFirstTime(user);
         var currentUser = db.collection("users").doc(user.uid);
         currentUser.get()
@@ -69,6 +70,85 @@ function surveyResults(currentUser, userID) {
                                             }).then(displayThankYou())
                                         }
                                     })
+=======
+        if (user) { //if user is new, add new record of survey result to "Results" collection
+            var currentUser = db.collection("users").doc(user.uid)
+            var userID = user.uid;
+            currentUser.get()
+                .then(userDoc => {
+                    // var userEmail = userDoc.data().email;
+                    console.log(userID);
+                    db.collection("Results").add({
+                        userID: userID,
+                        emergency: Question1,
+                        close_contact: Question2,
+                        fever_chills: values1.includes("fever_chills"),
+                        cough: values1.includes("cough"),
+                        shortness_breath: values1.includes("shortness_breath"),
+                        lost_sense_smell_taste: values1.includes("lost_sense_smell_taste"),
+                        sorethroat: values2.includes("sorethroat"),
+                        headache: values2.includes("headache"),
+                        fatigue_tiredness: values2.includes("fatigue_tiredness"),
+                        runnynose: values2.includes("runnynose"),
+                        sneezing: values2.includes("sneezing"),
+                        diarrhea: values2.includes("diarrhea"),
+                        lost_appetite: values2.includes("lost_appetite"),
+                        nausea_vomiting: values2.includes("nausea_vomiting"),
+                        body_muscle_aches: values2.includes("body_muscle_aches"),
+                        none: values3.includes("none"),
+                        timestamp: firebase.firestore.FieldValue.serverTimestamp()
+                    }).then(() => {
+                        db.collection("users").doc(user.uid).update({
+                            surveyCompleted: "True",
+                            survey_timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+                            status: "Pending"
+                        })
+                        db.collection("users").doc(user.uid).get().then(() => {
+                            let test = userDoc.data().survey_timestamp.toDate();
+                            console.log(test);
+                        })
+                    }).then(displayThankYou())
+                })
+        } else { // if user has already had an account, update new results to its original Results document
+            var currentResult = db.collection("Results")
+            var userID = user.uid;
+            currentResult.get()
+                .then(snap => {
+                    snap.forEach(userDoc => {
+                        var documentID = userDoc.id; //get the id of a survey result document
+                        console.log(documentID);
+                        db.collection("Results").doc(documentID).get() // get data of this document
+                            .then(resultDoc => {
+                                var id = resultDoc.data().userID; // get userID that is stored in the survey result document
+                                console.log(id);
+                                if (id == userID) { //if userID in the survey result document is the same as the id of this user, update new results
+                                    db.collection("Results").doc(documentID).update({
+                                        emergency: Question1,
+                                        close_contact: Question2,
+                                        fever_chills: values1.includes("fever_chills"),
+                                        cough: values1.includes("cough"),
+                                        shortness_breath: values1.includes("shortness_breath"),
+                                        lost_sense_smell_taste: values1.includes("lost_sense_smell_taste"),
+                                        sorethroat: values2.includes("sorethroat"),
+                                        headache: values2.includes("headache"),
+                                        fatigue_tiredness: values2.includes("fatigue_tiredness"),
+                                        runnynose: values2.includes("runnynose"),
+                                        sneezing: values2.includes("sneezing"),
+                                        diarrhea: values2.includes("diarrhea"),
+                                        lost_appetite: values2.includes("lost_appetite"),
+                                        nausea_vomiting: values2.includes("nausea_vomiting"),
+                                        body_muscle_aches: values2.includes("body_muscle_aches"),
+                                        none: values3.includes("none"),
+                                        timestamp: firebase.firestore.FieldValue.serverTimestamp()
+                                    }).then(() => {
+                                        db.collection("users").doc(user.uid).update({
+                                            surveyCompleted: "True",
+                                            survey_timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+                                            status: "Pending"
+                                        })
+                                    }).then(displayThankYou())
+                                }
+>>>>>>> fb98ceba8d8c700f505b7c3e209df9371adc140f
                             })
                         })
                 } else {
