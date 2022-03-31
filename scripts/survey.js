@@ -52,7 +52,8 @@ function surveyResults(currentUser, userID) {
                     }).then(() => {
                         db.collection("users").doc(user.uid).add({ 
                             surveyCompleted: "True",
-                            survey_timestamp: firebase.firestore.FieldValue.serverTimestamp()
+                            survey_timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+                            status : "Pending"
                         })
                         db.collection("users").doc(user.uid).get().then(() => {
                             let test = userDoc.data().survey_timestamp.toDate();
@@ -94,7 +95,8 @@ function surveyResults(currentUser, userID) {
                                     }).then(() => {
                                         db.collection("users").doc(user.uid).update({
                                             surveyCompleted: "True",
-                                            survey_timestamp: firebase.firestore.FieldValue.serverTimestamp()
+                                            survey_timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+                                            status : "Pending"
                                         })
                                     }).then(displayThankYou())
                                 }
