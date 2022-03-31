@@ -8,22 +8,22 @@ function surveyResults(currentUser, userID) {
     checkboxes1.forEach((checkbox) => {
         values1.push(checkbox.value);
     });
-    
+
     let checkboxes2 = document.querySelectorAll('input[name="symptoms2"]:checked');
     let values2 = [];
     checkboxes2.forEach((checkbox) => {
         values2.push(checkbox.value);
     });
-    
+
     let checkboxes3 = document.querySelectorAll('input[name="symptoms3"]:checked');
     let values3 = [];
     checkboxes3.forEach((checkbox) => {
         values3.push(checkbox.value);
     });
-    
+
 
     firebase.auth().onAuthStateChanged(user => {
-        if (user.isNewUser) { //if user is new, add new record of survey result to "Results" collection
+        if (user) { //if user is new, add new record of survey result to "Results" collection
             var currentUser = db.collection("users").doc(user.uid)
             var userID = user.uid;
             currentUser.get()
@@ -50,10 +50,10 @@ function surveyResults(currentUser, userID) {
                         none: values3.includes("none"),
                         timestamp: firebase.firestore.FieldValue.serverTimestamp()
                     }).then(() => {
-                        db.collection("users").doc(user.uid).add({ 
+                        db.collection("users").doc(user.uid).update({
                             surveyCompleted: "True",
                             survey_timestamp: firebase.firestore.FieldValue.serverTimestamp(),
-                            status : "Pending"
+                            status: "Pending"
                         })
                         db.collection("users").doc(user.uid).get().then(() => {
                             let test = userDoc.data().survey_timestamp.toDate();
@@ -96,7 +96,7 @@ function surveyResults(currentUser, userID) {
                                         db.collection("users").doc(user.uid).update({
                                             surveyCompleted: "True",
                                             survey_timestamp: firebase.firestore.FieldValue.serverTimestamp(),
-                                            status : "Pending"
+                                            status: "Pending"
                                         })
                                     }).then(displayThankYou())
                                 }
@@ -107,41 +107,41 @@ function surveyResults(currentUser, userID) {
     })
 };
 // Check if user has done survey today
-// function hasSurveyCompletedToday() {
-//     firebase.auth().onAuthStateChanged(user => {
-//         if (user) {
-//             var currentUser = db.collection("users").doc(user.uid)
-//             var userID = user.uid;
-//             console.log(userID);
-//             currentUser.get()
-//                 .then(userDoc => {
-//                     var surveyCompleted = userDoc.data().surveyCompleted;
-//                     var lastUpdated = userDoc.data().survey_timestamp;
-//                     var currentTime = firebase.firestore.Timestamp.fromDate(new Date());
-//                     console.log("surveyCompleted " + surveyCompleted);
-//                     console.log("survey last updated: " + lastUpdated.toDate());
-//                     console.log("current time " + currentTime.toDate());
-//                     if (surveyCompleted == "True") {
-//                         if (Math.abs(lastUpdated.seconds - currentTime.seconds) < 86400) {
-//                             console.log("user has done survey today");
-//                             let div = document.getElementById("survey-container");
-//                             str = "<div id='message-after-submission'><h1 class='mx-3 my-5 text-center'>You have done your survey today!</h1>" +
-//                                 "<div class='d-grid gap-2 d-sm-flex justify-content-sm-center text-center w-75 mx-auto'>" +
-//                                 "<button type='button' class='btn btn-lg btn-secondary mx-auto my-3' style='background-color: ; max-width: fit-content; font-size: 25px' onclick='surveyAgain()'><a class='text-light text-decoration-none'>Survey again</a></button>" +
-//                                 "<button type='button' class='btn btn-lg mx-auto my-3' style='background-color: #F74F20; max-width: fit-content; font-size: 25px'><a href='./personalHealth.html' class='text-light text-decoration-none'>See Result</a></button>" +
-//                                 "<button type='button' class='btn btn-lg mx-auto my-3 btn-success' style='max-width: fit-content; font-size: 25px'><a href='./main.html' class='text-light text-decoration-none'>Back To Home</a></button></div></div>";
-//                             div.innerHTML = str;
-//                         }
-//                     } else {
-//                         console.log("user must do survey");
-//                         surveyResults();
-//                     }
-//                 })
-//         } else {
-//             console.log("No user is sign in");
-//         }
-//     });
-// };
+function hasSurveyCompletedToday() {
+    firebase.auth().onAuthStateChanged(user => {
+        if (user) {
+            var currentUser = db.collection("users").doc(user.uid)
+            var userID = user.uid;
+            console.log(userID);
+            currentUser.get()
+                .then(userDoc => {
+                    var surveyCompleted = userDoc.data().surveyCompleted;
+                    var lastUpdated = userDoc.data().survey_timestamp;
+                    var currentTime = firebase.firestore.Timestamp.fromDate(new Date());
+                    console.log("surveyCompleted " + surveyCompleted);
+                    console.log("survey last updated: " + lastUpdated.toDate());
+                    console.log("current time " + currentTime.toDate());
+                    if (surveyCompleted == "True") {
+                        if (Math.abs(lastUpdated.seconds - currentTime.seconds) < 86400) {
+                            console.log("user has done survey today");
+                            let div = document.getElementById("survey-container");
+                            str = "<div id='message-after-submission'><h1 class='mx-3 my-5 text-center'>You have done your survey today!</h1>" +
+                                "<div class='d-grid gap-2 d-sm-flex justify-content-sm-center text-center w-75 mx-auto'>" +
+                                "<button type='button' class='btn btn-lg btn-secondary mx-auto my-3' style='background-color: ; max-width: fit-content; font-size: 25px' onclick='surveyAgain()'><a class='text-light text-decoration-none'>Survey again</a></button>" +
+                                "<button type='button' class='btn btn-lg mx-auto my-3' style='background-color: #F74F20; max-width: fit-content; font-size: 25px'><a href='./personalHealth.html' class='text-light text-decoration-none'>See Result</a></button>" +
+                                "<button type='button' class='btn btn-lg mx-auto my-3 btn-success' style='max-width: fit-content; font-size: 25px'><a href='./main.html' class='text-light text-decoration-none'>Back To Home</a></button></div></div>";
+                            div.innerHTML = str;
+                        }
+                    } else {
+                        console.log("user must do survey");
+                        surveyResults();
+                    }
+                })
+        } else {
+            console.log("No user is sign in");
+        }
+    });
+};
 //Do survey again
 function surveyAgain() {
     console.log("do survey again");
