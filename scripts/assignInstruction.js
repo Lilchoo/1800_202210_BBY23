@@ -82,7 +82,7 @@ function showCondition(k, i) {
     } else if (k == "runnynose") {
         return "Runny nose. ";
     } else if (k == "none") {
-        return "None. ";
+        return "In good condition. ";
     } else if (k == "shortness_breath") {
         return "Shortness of breath. ";
     } else if (k == "sneezing") {

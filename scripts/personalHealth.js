@@ -9,12 +9,26 @@ firebase.auth().onAuthStateChanged(user => {
 
     } else {
         // No user is signed in.
-        
+
     }
 })
 
 function Recommendations() {
     window.location.assign("recommendation.html");
+}
+
+function toSurveyAgain() {
+    console.log("do survey again");
+    firebase.auth().onAuthStateChanged(user => {
+        if (user) {
+            var currentUser = db.collection("users").doc(user.uid);
+            currentUser.update({
+                surveyCompleted: "False"
+            }).then(() => {
+                window.location.assign("survey.html");
+            })
+        }
+    })
 }
 
 
@@ -27,13 +41,13 @@ function insertSymptoms(currentUser, userTest_ID) {
 
     console.log(userTest_ID);
     currentResults.get()
-    .then(snap => {
-        snap.forEach(userDoc => {
-            var documentID = userDoc.id;
-            console.log(documentID);
-            db.collection("Results").doc(documentID).get()
-            .then(resultDoc => {
-                var resultsUserID = resultDoc.data().userID;
+        .then(snap => {
+            snap.forEach(userDoc => {
+                var documentID = userDoc.id;
+                // console.log(documentID);
+                db.collection("Results").doc(documentID).get()
+                    .then(resultDoc => {
+                        var resultsUserID = resultDoc.data().userID;
 
                 if (resultsUserID == userTest_ID) {
                     db.collection("Results").doc(documentID).get()
@@ -93,11 +107,11 @@ function insertSymptoms(currentUser, userTest_ID) {
                         "Body and Muscle Aches: " + thisDoc.data().cough + "<br>";
 
 
+                                })
+                        }
                     })
-                }
             })
         })
-    })
 
 }
 

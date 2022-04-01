@@ -1,3 +1,4 @@
+HEAD
 var currentUser
 function populateInfo() {
     firebase.auth().onAuthStateChanged(user => {
@@ -27,6 +28,7 @@ function populateInfo() {
 populateInfo();
 
 document.getElementById('instructions').disabled = false;
+// 7f1e0d560c713fa3af5aab717aca6a64ff1ecc65
 
 function confirmInstructions() {
     console.log("get instructions and store into db");
@@ -49,7 +51,7 @@ function confirmInstructions() {
                         timestamp: firebase.firestore.FieldValue.serverTimestamp()
 
                     }).then(() => {
-                        // window.location.href = "main.html";
+                        // window.location.href =  "main.html";
                         document.getElementById('instructions').disabled = true;
                     })
                 })
@@ -59,3 +61,8 @@ function confirmInstructions() {
         }
     });
 }
+
+//<<<<<<< HEAD
+//}
+//=======
+///>>>>>>> 7f1e0d560c713fa3af5aab717aca6a64ff1ecc65
