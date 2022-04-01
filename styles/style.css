@@ -156,3 +156,17 @@
     background-color:#F74F20 ;
     color: white;
 }
+
+/*schedule.html starts */
+
+.schedule-container > #schedule-title {
+    text-align: center;
+}
+
+.schedule-info th{
+    font-size: 2.25rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 50px;
+    text-align: center;
+}
