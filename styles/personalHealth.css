@@ -40,6 +40,7 @@ table {
     justify-self: center;
     align-self: center;
     grid-column: 2 / 4;
+    grid-row: 1 / 2;
 
 }
 
@@ -48,6 +49,7 @@ table {
     height: auto;
     justify-self: center;
     grid-column: 2 / 4;
+    grid-row: 2 / 3;
 
 }
 
@@ -55,6 +57,7 @@ table {
     justify-self: center;
     align-self: center;
     grid-column: 2 / 4;
+    grid-row: 3 / 4;
 
 }
 
