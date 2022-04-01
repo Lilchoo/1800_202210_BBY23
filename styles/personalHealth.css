@@ -11,15 +11,10 @@ h4 {
     text-align: center;
 }
 
-h2 {
-    margin-left: 5%;
-    color: forestgreen;
-}
-
 table {
     text-align: center;
-    width: 35%;
-    margin-left: 5%;
+    /* width: 35%;
+    margin-left: 5%; */
 }
 
 .container {
@@ -29,10 +24,9 @@ table {
 
 /*Personal Health Divs (Main Content)*/
 #personalhealth {
-    height: 70vh;
     display: grid;
     grid-template-columns: 1;
-    grid-template-rows: 12vh 1fr 10vh;
+    grid-template-rows: 15% 70% 15%;
 
 }
 
@@ -43,23 +37,20 @@ table {
     grid-row: 1;
 }
 
-.table-symptoms {
+#table-symptoms {
     height: auto;
     justify-self: center;
-    /* grid-column: 1 / span 4; */
+    grid-column: 1;
+    padding: 5px auto 5px auto;
     grid-row: 2;
-    margin: 0;
-}
-
-table th, td{
-    padding: 0 5px 0 5px;
 }
 
 .personal-buttons {
     justify-self: center;
     align-self: center;
     grid-column: 1;
-    grid-row:3;
+    grid-row: 3;
+
 }
 
 /* footer css starts*/

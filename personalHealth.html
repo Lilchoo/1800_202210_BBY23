@@ -29,38 +29,23 @@
     <!-- navbar -->
     <nav id="navbarPlaceholder"></nav>
 
-    <div class="status mt-3 mb-1">
-        <h1 class="health mx-2" style="color: #E63946"><span id="name-goes-here"></span>'s Health Information</h1>
+    <div class="personalinfo mt-3">
+        <h1 style="color: #E63946">Your Health Status, <span id="name-goes-here"></span></h1>
     </div>
+    
     <div id="personalhealth">
         <div class="health-status">
             <span style="font-size: 25px;">Status:</span>
                 <button class="btn" id="status-box" style="color: transparent; background-color: darkred;"><b>...................</b></button>
                         
         </div>
-        <div class="table-symptoms">
-            <table class="" style="width:70vw;">
-                <tr>
-                    <th>Symptoms Types </th>
-                    <th> Reported Result</th>
-                </tr>
-                <tr>
-                    <td>Sore Throat</td>
-                    <td>Yes/No</td>
-                </tr>
-                <tr>
-                    <td>Runny Nose</td>
-                    <td>Yes/No</td>
-                </tr>
-                <tr>
-                    <td>Loss of apetite</td>
-                    <td>Yes/No</td>
-                </tr>
-            </table>
+        <br>
+        <div id="table-symptoms">
+            <p>test</p>
         </div>
         <br>
         <br>
-        <div class="personal-buttons d-flex justify-content-center gap-4 w-75">
+        <div class="personal-buttons d-flex justify-content-center gap-4 w-100">
             <button type="button" class="btn btn-success" onclick="Recommendations()">Recommendations</button>
             <button id="survey-again" type="button" class="btn btn-secondary" onclick="toSurveyAgain()">Survey Again</button>
         </div>
