@@ -1,15 +1,16 @@
-function read_display_Recommendation() {
+function read_display_Instruction() {
 
-    db.collection("instructions").doc("user.uid")
-    .get()
+    db.collection("instructions")
+   .get()
     .then(userDoc => {
         console.log(user.uid);
         document.getElementById("scheduleGroup").innerHTML = 
-        "Date: " + user.uid.date + "<br>" +
-        "Task: " + user.uid.instructions + "<br>";
+        "Date: " + doc.data().date;
+        "Task: " + doc.data().instructions;
     })
 
 }
+read_display_Instruction();
 
 function insertName() {
     firebase.auth().onAuthStateChanged(user => {

@@ -11,20 +11,46 @@ h4 {
     text-align: center;
 }
 
-h2 {
-    margin-left: 5%;
-    color: forestgreen;
-}
-
 table {
     text-align: center;
-    width: 35%;
-    margin-left: 5%;
+    /* width: 35%;
+    margin-left: 5%; */
 }
 
 .container {
     display: block;
-    margin-left: 13%;
+    /* margin-left: 13%; */
+}
+
+/*Personal Health Divs (Main Content)*/
+#personalhealth {
+    display: grid;
+    grid-template-columns: 1;
+    grid-template-rows: 15% 70% 15%;
+
+}
+
+.health-status {
+    justify-self: center;
+    align-self: center;
+    grid-column: 1;
+    grid-row: 1;
+}
+
+#table-symptoms {
+    height: auto;
+    justify-self: center;
+    grid-column: 1;
+    padding: 5px auto 5px auto;
+    grid-row: 2;
+}
+
+.personal-buttons {
+    justify-self: center;
+    align-self: center;
+    grid-column: 1;
+    grid-row: 3;
+
 }
 
 /* footer css starts*/

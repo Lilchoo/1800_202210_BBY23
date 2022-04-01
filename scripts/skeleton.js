@@ -5,6 +5,7 @@
 function loadSkeleton(){
     console.log($('#navbarPlaceholder').load('./text/navbar.html'));
     console.log($('#footerPlaceholder').load('./text/footer.html'));
+    console.log($('#navbar-with-backPlaceholder').load('./text/navbar_with_back.html'));
 }
 loadSkeleton();
 
@@ -19,3 +20,7 @@ function backToMain() {
     });
 }
 
+function backToPrevious() {
+    
+    window.location.assign("myTeam.html");
+}

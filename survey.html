@@ -34,9 +34,25 @@
 <body onload="hasSurveyCompletedToday()">
     <div id="survey-container">
         <form data-multi-step class="multi-step-form" id="form">
-
             <div class="card" data-step>
                 <h3 class="step-title">Question 1</h3>
+                <div class="form-group">
+                    <p>Are you experience any of the following:</p>
+                    <ul>
+                        <li>Severe difficultu breathing (e.g. struggling to breathe or speaking in a single words)</li>
+                        <li>Severe chest pain</li>
+                        <li>Having a very hard time waking up</li>
+                        <li>Feeling confused</li>
+                        <li>Losing consciousness</li>
+                    </ul>
+                </div>
+                <br>
+                <input type="radio" name="yes/no" value="yes">Yes<br>
+                <input type="radio" name="yes/no" value="no">No<br>
+            </div>
+
+            <div class="card" data-step>
+                <h3 class="step-title">Question 2</h3>
                 <div class="form-group">
                     <p>Has someone you are in close contact with tested positive for COVID-19 in the last 14 days?</p>
                 </div>
@@ -46,7 +62,7 @@
             </div>
 
             <div class="card" data-step>
-                <h3 class="step-title">Question 2</h3>
+                <h3 class="step-title">Question 3</h3>
                 <div class="form-group">
                     <p>Are you experiencing new or worsening symptoms?</p>
                     <p>Select the symptoms you have. If you are not experiencing any symptoms, select "None of the

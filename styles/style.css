@@ -91,14 +91,14 @@
 }
 
 .bottom-nav-icon {
-    width: 4vh;
-    height: auto;
+    height: 4vh;
+    width: auto;
     margin-top: 10px;
 }
 /* footer css ends*/
 
 /* top navbar css starts */
-#navbarPlaceholder > #top-navbar {
+#top-navbar {
     background-color: #1D3557;
 }
 
@@ -134,18 +134,7 @@
     margin: 1vh 0 -5vh 0;
 }
 
-/* instruction.html starts */
-.instructions-container > #instructions-title{
-    text-align: center;
-}
 
-#instruction-form {
-    width: 90%;
-    margin: 0 auto 0 auto;
-}
-
-
-/* instruction.html ends */
 
 #survey-pop-up {
     text-align: center;
@@ -153,7 +142,7 @@
 }
 
 #survey-btn {
-    background-color:#F74F20 ;
+    background-color:#E63946 ;
     color: white;
 }
 
@@ -169,4 +158,57 @@
     margin-right: auto;
     padding: 50px;
     text-align: center;
+}
+/* assignInstruction.html starts */
+#assignInstruction-container {
+    display: grid;
+    height: 80vh;
+    grid-template-columns: 1;
+    grid-template-rows: 35% 65%;
+}
+
+#member-info-box {
+    grid-row: 1;
+    margin: 2vh;
+    padding: 0 7vw 0 7vw;
+    border-radius: 10px;
+    align-self: center;
+}
+
+#memberName{
+    color: #E63946;
+}
+
+#instruction-box {
+    grid-row: 2;
+    background-color: #A8DADC;
+    margin: 2vh 3vw 1vh 3vw;
+    display: grid;
+    grid-template-rows: 70% 5% 25%;
+    border-radius: 10px;
+    align-self: center;
+    height: 90%;
+}
+
+.instruction-container {
+    grid-row: 1;
+}
+
+.instructions-container > #instructions-title{
+    text-align: center;
+}
+
+#instruction-form {
+    width: 90%;
+    margin: 0 auto 0 auto;
+    padding-top: 1vh;
+}
+
+#notice {
+    grid-row: 2;
+    text-align: center;
+    font-size: small;
+}
+#assignInstruction-btn {
+    grid-row: 3;
 }
