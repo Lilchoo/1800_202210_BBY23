@@ -94,17 +94,17 @@ function insertSymptoms(currentUser, userTest_ID) {
                         document.getElementById("table-symptoms").innerHTML = 
                         "Fever and Chills: " + thisDoc.data().fever_chills + "<br>" +
                         "Cough: " + thisDoc.data().cough + "<br>" +
-                        "Shortness of Breath: " + thisDoc.data().cough + "<br>" +
-                        "Lost of sense, smell, and taste: " + thisDoc.data().cough + "<br>" +
-                        "Sorethroat: " + thisDoc.data().cough + "<br>" +
-                        "Headache: " + thisDoc.data().cough + "<br>" +
-                        "Fatigue and tiredness: " + thisDoc.data().cough + "<br>" +
-                        "Runnynose: " + thisDoc.data().cough + "<br>" +
-                        "Sneezing: " + thisDoc.data().cough + "<br>" +
-                        "Diarrhea: " + thisDoc.data().cough + "<br>" +
-                        "Lost of Appetite: " + thisDoc.data().cough + "<br>" +
-                        "Nausea or Vomiting: " + thisDoc.data().cough + "<br>" +
-                        "Body and Muscle Aches: " + thisDoc.data().cough + "<br>";
+                        "Shortness of Breath: " + thisDoc.data().shortness_breath + "<br>" +
+                        "Lost of sense, smell, and taste: " + thisDoc.data().lost_sense_smell_taste + "<br>" +
+                        "Sorethroat: " + thisDoc.data().sorethroat + "<br>" +
+                        "Headache: " + thisDoc.data().headache + "<br>" +
+                        "Fatigue and tiredness: " + thisDoc.data().fatigue_tiredness + "<br>" +
+                        "Runnynose: " + thisDoc.data().runnynose + "<br>" +
+                        "Sneezing: " + thisDoc.data().sneezing + "<br>" +
+                        "Diarrhea: " + thisDoc.data().diarrhea + "<br>" +
+                        "Lost of Appetite: " + thisDoc.data().lost_appetite + "<br>" +
+                        "Nausea or Vomiting: " + thisDoc.data().nausea_vomiting + "<br>" +
+                        "Body and Muscle Aches: " + thisDoc.data().body_muscle_aches + "<br>";
 
 
                                 })
