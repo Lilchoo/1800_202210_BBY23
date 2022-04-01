@@ -25,8 +25,8 @@ table {
 /*Personal Health Divs (Main Content)*/
 #personalhealth {
     display: grid;
-    grid-template-columns: 1;
-    grid-template-rows: 15% 70% 15%;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 100px 1fr 100px;
 
 }
 
