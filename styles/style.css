@@ -87,7 +87,7 @@
 
 .nav-link:hover {
     cursor: pointer;
-    color: #F1FAEE;
+    color: white;
 }
 
 .bottom-nav-icon {
@@ -111,6 +111,33 @@
     background-color: transparent;
     border: transparent;
 }
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    border-radius: 5px;
+  }
+  
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  .dropdown-content a:hover {
+      background-color: #A8DADC;
+      border-radius: 5px;
+    }
+  
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+  
 
 /* top navbar css ends */
 

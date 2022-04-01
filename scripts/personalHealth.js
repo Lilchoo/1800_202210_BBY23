@@ -9,7 +9,7 @@ firebase.auth().onAuthStateChanged(user => {
 
     } else {
         // No user is signed in.
-        
+
     }
 })
 
@@ -37,39 +37,39 @@ function insertSymptoms(currentUser, userTest_ID) {
 
     console.log(userTest_ID);
     currentResults.get()
-    .then(snap => {
-        snap.forEach(userDoc => {
-            var documentID = userDoc.id;
-            console.log(documentID);
-            db.collection("Results").doc(documentID).get()
-            .then(resultDoc => {
-                var resultsUserID = resultDoc.data().userID;
+        .then(snap => {
+            snap.forEach(userDoc => {
+                var documentID = userDoc.id;
+                // console.log(documentID);
+                db.collection("Results").doc(documentID).get()
+                    .then(resultDoc => {
+                        var resultsUserID = resultDoc.data().userID;
 
-                if (resultsUserID == userTest_ID) {
-                    db.collection("Results").doc(documentID).get()
-                    .then(thisDoc => {
+                        if (resultsUserID == userTest_ID) {
+                            db.collection("Results").doc(documentID).get()
+                                .then(thisDoc => {
+                                    console.log(thisDoc.id);
+                                    document.getElementById("table-symptoms").innerHTML =
+                                        "Fever and Chills: " + thisDoc.data().fever_chills + "<br>" +
+                                        "Cough: " + thisDoc.data().cough + "<br>" +
+                                        "Shortness of Breath: " + thisDoc.data().cough + "<br>" +
+                                        "Lost of sense, smell, and taste: " + thisDoc.data().cough + "<br>" +
+                                        "Sorethroat: " + thisDoc.data().cough + "<br>" +
+                                        "Headache: " + thisDoc.data().cough + "<br>" +
+                                        "Fatigue and tiredness: " + thisDoc.data().cough + "<br>" +
+                                        "Runnynose: " + thisDoc.data().cough + "<br>" +
+                                        "Sneezing: " + thisDoc.data().cough + "<br>" +
+                                        "Diarrhea: " + thisDoc.data().cough + "<br>" +
+                                        "Lost of Appetite: " + thisDoc.data().cough + "<br>" +
+                                        "Nausea or Vomiting: " + thisDoc.data().cough + "<br>" +
+                                        "Body and Muscle Aches: " + thisDoc.data().cough + "<br>";
 
-                        document.getElementById("table-symptoms").innerHTML = 
-                        "Fever and Chills: " + thisDoc.data().fever_chills + "<br>" +
-                        "Cough: " + thisDoc.data().cough + "<br>" +
-                        "Shortness of Breath: " + thisDoc.data().cough + "<br>" +
-                        "Lost of sense, smell, and taste: " + thisDoc.data().cough + "<br>" +
-                        "Sorethroat: " + thisDoc.data().cough + "<br>" +
-                        "Headache: " + thisDoc.data().cough + "<br>" +
-                        "Fatigue and tiredness: " + thisDoc.data().cough + "<br>" +
-                        "Runnynose: " + thisDoc.data().cough + "<br>" +
-                        "Sneezing: " + thisDoc.data().cough + "<br>" +
-                        "Diarrhea: " + thisDoc.data().cough + "<br>" +
-                        "Lost of Appetite: " + thisDoc.data().cough + "<br>" +
-                        "Nausea or Vomiting: " + thisDoc.data().cough + "<br>" +
-                        "Body and Muscle Aches: " + thisDoc.data().cough + "<br>";
 
-
+                                })
+                        }
                     })
-                }
             })
         })
-    })
 
 }
 
