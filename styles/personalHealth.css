@@ -24,37 +24,42 @@ table {
 
 .container {
     display: block;
-    margin-left: 13%;
+    /* margin-left: 13%; */
 }
 
 /*Personal Health Divs (Main Content)*/
 #personalhealth {
-    
+    height: 70vh;
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: 100px 1fr 100px;
+    grid-template-columns: 1;
+    grid-template-rows: 12vh 1fr 10vh;
 
 }
 
 .health-status {
     justify-self: center;
     align-self: center;
-    grid-column: 2 / 4;
-
+    grid-column: 1;
+    grid-row: 1;
 }
 
 .table-symptoms {
     height: auto;
     justify-self: center;
-    grid-column: 2 / 4;
+    /* grid-column: 1 / span 4; */
+    grid-row: 2;
+    margin: 0;
+}
 
+table th, td{
+    padding: 0 5px 0 5px;
 }
 
 .personal-buttons {
     justify-self: center;
     align-self: center;
-    grid-column: 2 / 4;
-
+    grid-column: 1;
+    grid-row:3;
 }
 
 /* footer css starts*/

@@ -21,3 +21,18 @@ insertName();
 function Recommendations() {
     window.location.assign("recommendation.html");
 }
+
+function toSurveyAgain() {
+    console.log("do survey again");
+    firebase.auth().onAuthStateChanged(user => {
+        if (user) {
+            var currentUser = db.collection("users").doc(user.uid);
+            currentUser.update({
+                surveyCompleted: "False"
+            }).then(() => {
+                window.location.assign("survey.html");
+            })
+        }
+    })
+}
+

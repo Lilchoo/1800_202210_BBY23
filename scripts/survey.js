@@ -139,7 +139,7 @@ function hasSurveyCompletedToday() {
                             str = "<div id='message-after-submission'><h1 class='mx-3 my-5 text-center'>You have done your survey today!</h1>" +
                                 "<div class='d-grid gap-2 d-sm-flex justify-content-sm-center text-center w-75 mx-auto'>" +
                                 "<button type='button' class='btn btn-lg btn-secondary mx-auto my-3' style='background-color: ; max-width: fit-content; font-size: 25px' onclick='surveyAgain()'><a class='text-light text-decoration-none'>Survey again</a></button>" +
-                                "<button type='button' class='btn btn-lg mx-auto my-3' style='background-color: #F74F20; max-width: fit-content; font-size: 25px'><a href='./personalHealth.html' class='text-light text-decoration-none'>See Result</a></button>" +
+                                "<button type='button' class='btn btn-lg mx-auto my-3' style='background-color: #E63946; max-width: fit-content; font-size: 25px'><a href='./personalHealth.html' class='text-light text-decoration-none'>See Result</a></button>" +
                                 "<button type='button' class='btn btn-lg mx-auto my-3 btn-success' style='max-width: fit-content; font-size: 25px'><a href='./main.html' class='text-light text-decoration-none'>Back To Home</a></button></div></div>";
                             div.innerHTML = str;
                         }
@@ -159,7 +159,6 @@ function surveyAgain() {
     firebase.auth().onAuthStateChanged(user => {
         if (user) {
             var currentUser = db.collection("users").doc(user.uid)
-            var userID = user.uid;
             currentUser.update({
                 surveyCompleted: "False"
             }).then(() => {
@@ -179,3 +178,5 @@ function displayThankYou() {
         "<div id='thank-you-image'><img src='/images/thank-you.jpg' width='100%'/></div>";
     div.innerHTML = str;
 }
+
+// document.getElementById("survey-again").addEventListener("click", surveyAgain());

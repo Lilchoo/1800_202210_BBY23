@@ -29,25 +29,17 @@
     <!-- navbar -->
     <nav id="navbarPlaceholder"></nav>
 
-    <div class="personalinfo">
-        <h1>Welcome, <span id="name-goes-here"></span></h1>
+    <div class="status mt-3 mb-1">
+        <h1 class="health mx-2" style="color: #E63946"><span id="name-goes-here"></span>'s Health Information</h1>
     </div>
-    <br>
-    <div class="status">
-        <h4 class="health">Your Health Status</h4>
-    </div>
-    <br>
     <div id="personalhealth">
         <div class="health-status">
-            <h2>Status:
-                <a href="#" class="button"><b>...................</b></a>
-            </h2>
-            <br>
-            
+            <span style="font-size: 25px;">Status:</span>
+                <button class="btn" id="status-box" style="color: transparent; background-color: darkred;"><b>...................</b></button>
+                        
         </div>
-        <br>
         <div class="table-symptoms">
-            <table style="width:100%">
+            <table class="" style="width:70vw;">
                 <tr>
                     <th>Symptoms Types </th>
                     <th> Reported Result</th>
@@ -68,10 +60,9 @@
         </div>
         <br>
         <br>
-        <div class="personal-buttons">
-            <button type="button" class="btn btn-primary" onclick="Recommendations()">Recommendations</button>
-            <!--<button type="button" class="btn btn-success" onclick="SurveyAgain()">Survey Again</button>-->
-            <a href="survey.html" class="btn btn-success">Survey Again</a>
+        <div class="personal-buttons d-flex justify-content-center gap-4 w-75">
+            <button type="button" class="btn btn-success" onclick="Recommendations()">Recommendations</button>
+            <button id="survey-again" type="button" class="btn btn-secondary" onclick="toSurveyAgain()">Survey Again</button>
         </div>
     </div>
 
@@ -85,8 +76,8 @@
 
     <script src="./scripts/firebaseAPI_TEAMBBY23.js"></script>
     <script src="./scripts/skeleton.js"></script>
+    <script src="./scripts/survey.js"></script>
     <script src="./scripts/personalHealth.js"></script>
-
 </body>
 
 </html>
