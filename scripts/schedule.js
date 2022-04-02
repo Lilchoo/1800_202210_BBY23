@@ -17,15 +17,15 @@ firebase.auth().onAuthStateChanged(user => {
 function insertInstruction(currentUser, userTest_ID) {
     //currentUser = db.collection("users").doc(user.uid);
     currentUser.get()
-    .then(userDoc => {
+        .then(userDoc => {
 
-        var date = userDoc.data().date;
-        console.log(date);
-        document.getElementById("date-goes-here").innerText = date
-        var task = userDoc.data().instructions;
-        console.log(task);
-        document.getElementById("instruction-goes-here").innerText = task
-    })
+            var date = userDoc.data().date;
+            console.log(date);
+            document.getElementById("date-goes-here").innerText = date
+            var task = userDoc.data().instructions;
+            console.log(task);
+            document.getElementById("instruction-goes-here").innerText = task
+        })
 }
 
 
