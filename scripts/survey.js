@@ -162,7 +162,8 @@ function surveyAgain() {
             currentUser.update({
                 surveyCompleted: "False"
             }).then(() => {
-                window.location.reload();
+                window.location.assign("survey.html");
+                // window.location.reload();
             })
         }
     })
