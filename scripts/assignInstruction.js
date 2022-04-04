@@ -1,5 +1,6 @@
 // Get name and id of the member whose information is displayed
 var params = new URL(window.location.href);
+console.log(params);
 const memberID = params.searchParams.get("id");
 console.log(memberID);
 const memberName = params.searchParams.get("memberName");
@@ -225,7 +226,7 @@ function sendInstructions() {
                                         member.update({
                                             instructions: i,
                                             date: d
-                                        })
+                                        });
                                     } else {
                                         member.set({
                                             instructions: i,
@@ -243,6 +244,28 @@ function sendInstructions() {
     })
 }
 
+// Confirm if the user really wants to send the instruction
 function displayPopup() {
-    //update later
+    confirmInstructions();
+    let div = document.getElementById("assignInstruction-container");
+    div.style.visibility = "hidden";
+    let popup = document.getElementById("confirm-popup");
+    popup.classList.add("display-popup");
+}
+
+// After the user sends instruction, go back to member's information page
+function closePopup() {
+    sendInstructions();
+    document.getElementById("confirm-popup").style.backgroundColor = "white";
+    document.getElementById("confirm-popup").innerHTML = 
+    "<img src='./images/green_tick.png'/><h3 style='color:#E63946;'>Your instruction has been sent!</h3>";
+    setTimeout(function () {
+        window.location.assign(params);
+    }, 2000);
+
+}
+
+// Cancel sending instruction
+function cancelSending() {
+    window.location.assign(params);
 }

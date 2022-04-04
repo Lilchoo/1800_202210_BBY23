@@ -246,3 +246,23 @@
 #assignInstruction-btn {
     grid-row: 3;
 }
+
+.popup {
+    width: 75%;
+    position: absolute;
+    background-color: #e7e7e7;
+    border-radius: 10px;
+    text-align: center;
+    padding: 0px 0 10px 0;
+    visibility: hidden;
+    transition: transform 0.4s;
+    margin: 20vh auto 0 12.5%;
+}
+
+.display-popup{
+    visibility: visible;
+}
+.popup img{
+    width: 80px;
+    margin-top: -50px;
+}

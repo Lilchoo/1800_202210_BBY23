@@ -89,12 +89,12 @@ function logOut() {
     setTimeout(function () {
         firebase.auth().signOut().then(function () {
             console.log('Signed Out');
-            //Navigates user to the main page after 5 sec
+            //Navigates user to the main page after 3 sec
             window.location.assign("index.html");
         }, function (error) {
             console.error('Sign Out Error', error);
         })
-    }, 5000);
+    }, 3000);
 }
 
 

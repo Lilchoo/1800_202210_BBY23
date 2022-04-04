@@ -31,7 +31,13 @@
 <body>
     <!-- navbar -->
     <nav id="navbar-with-backPlaceholder"></nav>
-
+    <div class='popup' id="confirm-popup">
+        <img src='./images/send-confirm.png'>
+        <h3 style="color:#E63946;">Confirmation</h3>
+        <p>Are you sure you want to send this instruction?</p>
+        <button type='button' class='btn btn-success btn-lg' style="width: 100px;" onclick='closePopup()'>Yes</button>
+        <button type='button' class='btn text-dark btn-lg btn-outline-secondary' style="width: 100px;" onclick='cancelSending()'>Cancel</button>
+    </div>
     <div id="assignInstruction-container">
         <div id="member-info-box">
             <h1 class="text-center"><span id="memberName"></span></h1>
@@ -39,6 +45,7 @@
             <div id="condition-goes-here"></div>
         </div>
         <div id="instruction-box">
+
             <div class="instructions-container">
                 <form id="instruction-form">
                     <div class="form-group">
@@ -51,7 +58,7 @@
                     </div>
                 </form>
             </div>
-            <p id="notice">Please confirm before sending out.</p>
+            <p id="notice">Click "Confirm" to save and send out later.</p>
             <div class="d-flex justify-content-center gap-2 w-100" id="assignInstruction-btn">
                 <button type="button" class="btn my-auto" onclick="editInstructions()"><img src="./images/edit.png"
                         style="width: 30px;" />
@@ -63,13 +70,14 @@
                     <div><abbr title="Click to save your instructions"
                             style="text-decoration:none; cursor:pointer">Confirm</abbr></div>
                 </button>
-                <button type="button" class="btn my-auto" onclick="sendInstructions()"><img src="./images/send.png"
+                <button type="button" class="btn my-auto" onclick="displayPopup()"><img src="./images/send.png"
                         style="width: 30px;" />
                     <div><abbr title="Click to send your instructions"
                             style="text-decoration:none; cursor:pointer">Send</abbr></div>
                 </button>
             </div>
         </div>
+
 
         <!-- Option 1: Bootstrap Bundle with Popper -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
