@@ -203,7 +203,7 @@ function updateInstructionDoc(userID, i, d) {
 }
 
 function sendInstructions() {
-    
+
     confirmInstructions();
     firebase.auth().onAuthStateChanged(user => {
         var userID = user.uid;
@@ -241,4 +241,8 @@ function sendInstructions() {
                 })
             })
     })
+}
+
+function displayPopup() {
+    //update later
 }
