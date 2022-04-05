@@ -26,8 +26,8 @@ function read_display_Recommendation(currentUser, userTest_ID) {
     var resultsLow = db.collection("Recommendation").doc("Low");
     var arraySymptoms1 = [];
     var arraySymptoms2 = [];
-    var listOne;
-    var listTwo;
+    var listOne = [];
+    var listTwo = [];
 
     console.log(userTest_ID);
     currentResults.get()
@@ -59,13 +59,13 @@ function read_display_Recommendation(currentUser, userTest_ID) {
                                     arraySymptoms2.push(thisDoc.data().body_muscle_aches);
 
                                     for (i = 0; i < arraySymptoms1.length; i++) {
-                                        if (arraySymptoms1[i] = "true") {
+                                        if (arraySymptoms1[i] == true) {
                                             listOne++;
                                         }
                                     }
 
                                     for (i = 0; i < arraySymptoms2.length; i++) {
-                                        if (arraySymptoms2[i] = "true") {
+                                        if (arraySymptoms2[i] == true) {
                                             listTwo++;
                                         }
                                     }
@@ -75,25 +75,43 @@ function read_display_Recommendation(currentUser, userTest_ID) {
                                             .then(highDoc => {
                                                 console.log(highDoc.data());
                                                 document.getElementById("recommendationGroup").innerHTML =
-                                                    "Instruction: " + highDoc.data().Instruction + "<br>" +
-                                                    "Details: " + highDoc.data().Details + "<br>";
+
+                                                "<div><br><img src='/images/hospital.jpg' class='rounded mx-auto d-block' width='60%'/><h3>" + highDoc.data().Instruction + "</h3></div>"
+                                                + "<div><br><h5>" + highDoc.data().Details + "</h5></div>"
+                                                + "<button type='button' class='btn btn-lg mx-auto my-3 btn-success' style='max-width: fit-content; font-size: 25px'><a href='./personalHealth.html' class='text-light text-decoration-none'>Back To Health Status</a></button></div></div>";
+                                                    // "Instruction: " + highDoc.data().Instruction + "<br>" +
+                                                    // "Details: " + highDoc.data().Details + "<br>";
                                             })
 
-                                    } else if (thisDoc.data().close_contact == "yes" || listOne > 1 || listTwo > 3) {
+                                    } else if (thisDoc.data().close_contact == "yes" || listOne.length > 1 || listTwo.length > 3) {
                                         resultsMedium.get()
                                             .then(mediumDoc => {
                                                 console.log(mediumDoc.data());
                                                 document.getElementById("recommendationGroup").innerHTML =
-                                                    "Instruction: " + mediumDoc.data().Instruction + "<br>" +
-                                                    "Details: " + mediumDoc.data().Details + "<br>";
+
+                                                "<div><br><img src='/images/doctor.webp' class='rounded mx-auto d-block' style='max-width: fit-content;' width='60%'/><h3>" + mediumDoc.data().Instruction + "</h3></div>"
+                                                + "<div><br><h5>" + mediumDoc.data().Details + "</h5></div>"
+                                                + "<button type='button' class='btn btn-lg mx-auto my-3 btn-success' style='max-width: fit-content; font-size: 25px'><a href='./personalHealth.html' class='text-light text-decoration-none'>Back To Health Status</a></button></div></div>";
+
+
+
+                                                    // "Instruction: " + mediumDoc.data().Instruction + "<br>" +
+                                                    // "Details: " + mediumDoc.data().Details + "<br>";
                                             })
                                     } else {
                                         resultsLow.get()
                                             .then(lowDoc => {
                                                 console.log(lowDoc.data());
                                                 document.getElementById("recommendationGroup").innerHTML =
-                                                    "Instruction: " + lowDoc.data().Instruction + "<br>" +
-                                                    "Details: " + lowDoc.data().Details + "<br>";
+
+                                                "<div><br><img src='/images/healthy.png' class='rounded mx-auto d-block' style='max-width: fit-content;' width='60%'/><h3>" + lowDoc.data().Instruction + "</h3></div>"
+                                                + "<div><br><h5>" + lowDoc.data().Details + "</h5></div>"
+                                                + "<button type='button' class='btn btn-lg mx-auto my-3 btn-success' style='max-width: fit-content; font-size: 25px'><a href='./personalHealth.html' class='text-light text-decoration-none'>Back To Health Status</a></button></div></div>";
+                                                    
+                                                
+                                                
+                                                // "Instruction: " + lowDoc.data().Instruction + "<br>" +
+                                                //     "Details: " + lowDoc.data().Details + "<br>";
                                             })
                                     }
 

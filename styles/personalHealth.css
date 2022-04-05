@@ -39,6 +39,7 @@ table {
 }
 
 #table-symptoms {
+    min-height: 200px;
     height: auto;
     justify-self: center;
     grid-column: 2 / 4;
