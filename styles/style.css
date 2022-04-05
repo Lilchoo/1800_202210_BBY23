@@ -9,13 +9,12 @@
 #survey-container {
     height: 100vh;
     display: grid;
-    grid-template-rows: 70% 30%;
+    grid-template-rows: 60% 40%;
 }
 
 #message-after-submission {
     grid-row: 1;
     align-self: center;
-    margin-top: 20px;
 }
 
 #message-after-submission>h1 {
