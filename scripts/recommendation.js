@@ -26,8 +26,8 @@ function read_display_Recommendation(currentUser, userTest_ID) {
     var resultsLow = db.collection("Recommendation").doc("Low");
     var arraySymptoms1 = [];
     var arraySymptoms2 = [];
-    var listOne;
-    var listTwo;
+    var listOne = [];
+    var listTwo = [];
 
     console.log(userTest_ID);
     currentResults.get()
@@ -59,13 +59,13 @@ function read_display_Recommendation(currentUser, userTest_ID) {
                                     arraySymptoms2.push(thisDoc.data().body_muscle_aches);
 
                                     for (i = 0; i < arraySymptoms1.length; i++) {
-                                        if (arraySymptoms1[i] = "true") {
+                                        if (arraySymptoms1[i] == true) {
                                             listOne++;
                                         }
                                     }
 
                                     for (i = 0; i < arraySymptoms2.length; i++) {
-                                        if (arraySymptoms2[i] = "true") {
+                                        if (arraySymptoms2[i] == true) {
                                             listTwo++;
                                         }
                                     }
@@ -83,7 +83,7 @@ function read_display_Recommendation(currentUser, userTest_ID) {
                                                     // "Details: " + highDoc.data().Details + "<br>";
                                             })
 
-                                    } else if (thisDoc.data().close_contact == "yes" || listOne > 1 || listTwo > 3) {
+                                    } else if (thisDoc.data().close_contact == "yes" || listOne.length > 1 || listTwo.length > 3) {
                                         resultsMedium.get()
                                             .then(mediumDoc => {
                                                 console.log(mediumDoc.data());
