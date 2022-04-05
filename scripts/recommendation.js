@@ -60,13 +60,13 @@ function read_display_Recommendation(currentUser, userTest_ID) {
 
                                     for (i = 0; i < arraySymptoms1.length; i++) {
                                         if (arraySymptoms1[i] == true) {
-                                            listOne++;
+                                            listOne.push(arraySymptoms1[i]);
                                         }
                                     }
 
                                     for (i = 0; i < arraySymptoms2.length; i++) {
                                         if (arraySymptoms2[i] == true) {
-                                            listTwo++;
+                                            listTwo.push(arraySymptoms2[i]);
                                         }
                                     }
 
