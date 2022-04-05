@@ -1,20 +1,8 @@
 
-.box {
-    width: 100%;
-    text-align: center
-}
-
 h1 {
-    text-align: center
-}
-/* .addbtn{
-    padding: 10px 18px;
-    width: auto;
-    position: relative;
-    display: inline-block;
-    left: 50%;
-    transform: translate(-50%);
+    text-align: center;
 } */
+
 /* footer css starts*/
 #footerPlaceholder > #bottom-navbar {
     background-color: #1D3557;
