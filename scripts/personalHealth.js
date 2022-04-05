@@ -159,9 +159,9 @@ function insertSymptoms(currentUser, userTest_ID) {
                                     tableSymptoms += "</table>";
 
                                     if (tableS.length <= 0) {
-                                        document.getElementById("table-symptoms").innerHTML = "<h6>NONE</h6>";
+                                        document.getElementById("table-symptoms").innerHTML = "<h5>Please Check Recommendation</h5>";
                                     } else {
-                                        document.getElementById("table-symptoms").innerHTML = tableSymptoms;
+                                        document.getElementById("table-symptoms").innerHTML = tableSymptoms + "<br>" + "<p>Please Check Recoomendation</p>";
 
                                     }
 
