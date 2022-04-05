@@ -25,12 +25,13 @@ table {
 /*Personal Health Divs (Main Content)*/
 #personalhealth {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: 100px 1fr 100px;
+    grid-template-columns: 1fr 25vh 25vh 1fr;
+    grid-template-rows: 100px 1fr 1fr 1fr 100px;
 
 }
 
 #health-status {
+    height: 100px;
     justify-self: center;
     align-self: center;
     grid-column: 2 / 4;
@@ -39,11 +40,12 @@ table {
 }
 
 #table-symptoms {
-    min-height: 150px;
+    min-height: 250px;
     height: auto;
     justify-self: center;
+    align-self: center;
     grid-column: 2 / 4;
-    grid-row: 2 / 3;
+    grid-row: 3 / 5;
 
 }
 
@@ -51,7 +53,7 @@ table {
     justify-self: center;
     align-self: center;
     grid-column: 2 / 4;
-    grid-row: 3 / 4;
+    grid-row: 5 / 6;
 
 }
 

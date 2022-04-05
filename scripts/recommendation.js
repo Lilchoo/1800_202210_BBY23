@@ -76,7 +76,7 @@ function read_display_Recommendation(currentUser, userTest_ID) {
                                                 console.log(highDoc.data());
                                                 document.getElementById("recommendationGroup").innerHTML =
 
-                                                "<div><br><img src='/images/hospital.jpg' class='rounded mx-auto d-block' width='60%'/><h3>" + highDoc.data().Instruction + "</h3></div>"
+                                                "<div><br><img src='/images/hospital.jpg' class='rounded mx-auto d-block' style='max-width: fit-content;' width='50%'/><h3><br>" + highDoc.data().Instruction + "</h3></div>"
                                                 + "<div><br><h5>" + highDoc.data().Details + "</h5></div>"
                                                 + "<button type='button' class='btn btn-lg mx-auto my-3 btn-success' style='max-width: fit-content; font-size: 25px'><a href='./personalHealth.html' class='text-light text-decoration-none'>Back To Health Status</a></button></div></div>";
                                                     // "Instruction: " + highDoc.data().Instruction + "<br>" +
@@ -89,7 +89,7 @@ function read_display_Recommendation(currentUser, userTest_ID) {
                                                 console.log(mediumDoc.data());
                                                 document.getElementById("recommendationGroup").innerHTML =
 
-                                                "<div><br><img src='/images/doctor.webp' class='rounded mx-auto d-block' style='max-width: fit-content;' width='60%'/><h3>" + mediumDoc.data().Instruction + "</h3></div>"
+                                                "<div><br><img src='/images/doctor.webp' class='rounded mx-auto d-block' style='max-width: fit-content;' width='50%'/><h3><br>" + mediumDoc.data().Instruction + "</h3></div>"
                                                 + "<div><br><h5>" + mediumDoc.data().Details + "</h5></div>"
                                                 + "<button type='button' class='btn btn-lg mx-auto my-3 btn-success' style='max-width: fit-content; font-size: 25px'><a href='./personalHealth.html' class='text-light text-decoration-none'>Back To Health Status</a></button></div></div>";
 
@@ -104,7 +104,7 @@ function read_display_Recommendation(currentUser, userTest_ID) {
                                                 console.log(lowDoc.data());
                                                 document.getElementById("recommendationGroup").innerHTML =
 
-                                                "<div><br><img src='/images/healthy.png' class='rounded mx-auto d-block' style='max-width: fit-content;' width='60%'/><h3>" + lowDoc.data().Instruction + "</h3></div>"
+                                                "<div><br><img src='/images/healthy.png' class='rounded mx-auto d-block' style='max-width: fit-content;' width='50%'/><h3><br>" + lowDoc.data().Instruction + "</h3></div>"
                                                 + "<div><br><h5>" + lowDoc.data().Details + "</h5></div>"
                                                 + "<button type='button' class='btn btn-lg mx-auto my-3 btn-success' style='max-width: fit-content; font-size: 25px'><a href='./personalHealth.html' class='text-light text-decoration-none'>Back To Health Status</a></button></div></div>";
                                                     

@@ -27,6 +27,10 @@
     margin: auto 0 0 0;
 }
 
+input[type=checkbox] {
+    /* transform: scale(1.5); */
+}
+
 /* survey html css ends*/
 
 /* health html css start*/

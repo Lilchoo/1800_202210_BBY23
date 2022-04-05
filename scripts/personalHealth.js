@@ -136,20 +136,20 @@ function insertSymptoms(currentUser, userTest_ID) {
                                             status: "red"
                                         })
                                         document.getElementById("health-status").innerHTML =
-                                            "<h1 style='background-color: red'>STATUS</h1>"
+                                            "<img src='/images/highrisk.png'>"
 
                                     } else if (thisDoc.data().close_contact == "yes" || listOne.length > 1 || listTwo.length > 3) {
                                         currentUser.update({
                                             status: "orange"
                                         })
                                         document.getElementById("health-status").innerHTML =
-                                            "<h1 style='background-color: orange'>STATUS</h1>"
+                                            "<img src='/images/mediumrisk.png'>"
                                     } else {
-                                            currentUser.update({
-                                                status: "green"
-                                            })
+                                        currentUser.update({
+                                            status: "green"
+                                        })
                                         document.getElementById("health-status").innerHTML =
-                                            "<h1 style='background-color: green'>STATUS</h1>"
+                                            "<img src='/images/lowrisk.png'>"
                                     }
 
                                     tableSymptoms = "<table><tr><th>Symptoms</th></tr>"
@@ -161,7 +161,7 @@ function insertSymptoms(currentUser, userTest_ID) {
                                     if (tableS.length <= 0) {
                                         document.getElementById("table-symptoms").innerHTML = "<h5>Please Check Recommendation</h5>";
                                     } else {
-                                        document.getElementById("table-symptoms").innerHTML = tableSymptoms + "<br>" + "<p>Please Check Recoomendation</p>";
+                                        document.getElementById("table-symptoms").innerHTML = tableSymptoms;
 
                                     }
 
@@ -184,4 +184,3 @@ function insertName() {
 
     })
 }
-
