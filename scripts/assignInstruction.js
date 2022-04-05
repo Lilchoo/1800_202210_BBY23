@@ -97,35 +97,46 @@ function showCondition(k, i) {
     }
 }
 
+// Display instruction form if the current user's role is not "athlete"
+firebase.auth().onAuthStateChanged(user => {
+    const userID = user.uid;
+    console.log("current user ID: " + userID);
+    db.collection("users").doc(userID).get()
+        .then(doc => {
+            var role = doc.data().role;
+            if (role != "athlete") {
+                let div = document.getElementById("instruction-box");
+                div.style.visibility = "visible";
+                console.log("instruction box is visible");
+                populateInfo(userID);
+            } else {}
+        })
+})
+
 // Display instructions in the form
-function populateInfo() {
-    firebase.auth().onAuthStateChanged(user => {
-        var userID = user.uid;
-        console.log(userID);
-        db.collection("instructions").get()
-            .then(snap => {
-                snap.forEach(instructionDoc => {
-                    var docID = instructionDoc.id;
-                    db.collection("instructions").doc(docID).get()
-                        .then(doc => {
-                            var id1 = doc.data().userID;
-                            var id2 = doc.data().receiverID;
-                            if (id1 == userID && id2 == memberID) {
-                                var i = doc.data().instructions;
-                                var d = doc.data().date;
-                                if (i != null) {
-                                    document.getElementById("instructions").value = i;
-                                }
-                                if (d != null) {
-                                    document.getElementById("dateInput").value = d;
-                                }
+function populateInfo(userID) {
+    db.collection("instructions").get()
+        .then(snap => {
+            snap.forEach(instructionDoc => {
+                var docID = instructionDoc.id;
+                db.collection("instructions").doc(docID).get()
+                    .then(doc => {
+                        var id1 = doc.data().userID;
+                        var id2 = doc.data().receiverID;
+                        if (id1 == userID && id2 == memberID) {
+                            var i = doc.data().instructions;
+                            var d = doc.data().date;
+                            if (i != null) {
+                                document.getElementById("instructions").value = i;
                             }
-                        })
-                })
+                            if (d != null) {
+                                document.getElementById("dateInput").value = d;
+                            }
+                        }
+                    })
             })
-    });
+        });
 }
-populateInfo();
 
 document.getElementById('instructions').disabled = true;
 document.getElementById('dateInput').disabled = true;
@@ -204,7 +215,6 @@ function updateInstructionDoc(userID, i, d) {
 }
 
 function sendInstructions() {
-
     confirmInstructions();
     firebase.auth().onAuthStateChanged(user => {
         var userID = user.uid;
@@ -236,7 +246,6 @@ function sendInstructions() {
                                         })
                                     }
                                 })
-
                             }
                         })
                 })
@@ -247,8 +256,10 @@ function sendInstructions() {
 // Confirm if the user really wants to send the instruction
 function displayPopup() {
     confirmInstructions();
-    let div = document.getElementById("assignInstruction-container");
-    div.style.visibility = "hidden";
+    let div1 = document.getElementById("assignInstruction-container");
+    div1.style.visibility = "hidden";
+    let div2 = document.getElementById("instruction-box");
+    div2.style.visibility = "hidden";
     let popup = document.getElementById("confirm-popup");
     popup.classList.add("display-popup");
 }
@@ -257,8 +268,8 @@ function displayPopup() {
 function closePopup() {
     sendInstructions();
     document.getElementById("confirm-popup").style.backgroundColor = "white";
-    document.getElementById("confirm-popup").innerHTML = 
-    "<img src='./images/green_tick.png'/><h3 style='color:#E63946;'>Your instruction has been sent!</h3>";
+    document.getElementById("confirm-popup").innerHTML =
+        "<img src='./images/green_tick.png'/><h3 style='color:#E63946;'>Your instruction has been sent!</h3>";
     setTimeout(function () {
         window.location.assign(params);
     }, 2000);

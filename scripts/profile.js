@@ -23,7 +23,7 @@ function populateInfo() {
                         document.getElementById("DOBInput").value = userDOB;
                     }
                     if (userRole != null) {
-                        document.querySelector('input[name="role"]:checked').value = userRole;
+                        document.querySelector('input[name="role"]').value = userRole;
                     }
                     if (userTeam != null) {
                         document.getElementById("teamInput").value = userTeam;
@@ -37,10 +37,6 @@ function populateInfo() {
                 "<button type='button' class='btn btn-lg mx-auto my-3' style='background-color: #E63946; max-width: fit-content'><a href='./login.html'" +
                 "class='text-light text-decoration-none'>Log in</a></button></div>" + "<div class='mt-4 text-center'><img src='./images/login.png' style='max-width: 250px;'/></div>"
             document.getElementById("profile-container").innerHTML = str;
-
-            // var intID = setInterval(function() {
-            //     window.location.assign("index.html");},3000);
-            // setTimeout(function() { clearInterval(intID); }, 3000);
         }
     });
 }
@@ -75,7 +71,7 @@ function saveProfile() {
                     div1.setAttribute("id", "survey-pop-up");
                     form.appendChild(div1);
                     let str = "<p class='mt-2'><b>Please complete this daily health check-up!</b></p>" +
-                        "<a href='survey.html' class='btn mb-3' id='survey-btn'>Check-up</a>";
+                        "<a href='survey.html' class='btn mb-5' id='survey-btn'>Check-up</a>";
                     document.getElementById("survey-pop-up").innerHTML = str;
                 })
 
