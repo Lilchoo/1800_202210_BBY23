@@ -241,7 +241,7 @@ function saveInstructionToMemberDoc(userID, senderName) {
                             var i = doc.data().instructions;
                             var d = doc.data().date;
                             var member = db.collection("users").doc(memberID);
-                            let instructionDetails = "Date: " + d + "<br/>Instruction details: " + i  + "<br/>From " + senderName;
+                            let instructionDetails = "<b>Date:</b> " + d + "<br/><b>Details:</b> " + i  + "<br/><span style='text-align: right;'>From <b>" + senderName + "</b></span>";
                             console.log(instructionDetails);
                             //save instructions to an array called "instructions" in this member's document
                             member.set({
