@@ -219,40 +219,41 @@ function sendInstructions() {
     firebase.auth().onAuthStateChanged(user => {
         var userID = user.uid;
         console.log(userID);
-        db.collection("instructions").get()
-            .then(snap => {
-                snap.forEach(instructionDoc => {
-                    var docID = instructionDoc.id;
-                    db.collection("instructions").doc(docID).get()
-                        .then(doc => {
-                            var id1 = doc.data().userID;
-                            var id2 = doc.data().receiverID;
-                            if (id1 == userID && id2 == memberID) {
-                                var i = doc.data().instructions;
-                                var d = doc.data().date;
-                                var member = db.collection("users").doc(memberID);
-                                member.get().then(memberDoc => {
-                                    if (memberDoc.data().instructions != null) {
-                                        member.update({
-                                            instructions: i,
-                                            date: d
-                                        });
-                                    } else {
-                                        member.set({
-                                            instructions: i,
-                                            date: d
-                                        }, {
-                                            merge: true
-                                        })
-                                    }
-                                })
-                            }
-                        })
-                })
-            })
+        db.collection("users").doc(userID).get()
+            .then(userDoc => {
+                let senderName = userDoc.data().name;
+                saveInstructionToMemberDoc(userID, senderName);
+            });
     })
 }
 
+// Save instruction details to this member's document so that these details will be displayed in schedule page later
+function saveInstructionToMemberDoc(userID, senderName) {
+    db.collection("instructions").get()
+        .then(snap => {
+            snap.forEach(instructionDoc => {
+                var docID = instructionDoc.id;
+                db.collection("instructions").doc(docID).get()
+                    .then(doc => {
+                        var id1 = doc.data().userID;
+                        var id2 = doc.data().receiverID;
+                        if (id1 == userID && id2 == memberID) {
+                            var i = doc.data().instructions;
+                            var d = doc.data().date;
+                            var member = db.collection("users").doc(memberID);
+                            let instructionDetails = "Date: " + d + "<br/>Instruction details: " + i  + "<br/>From " + senderName;
+                            console.log(instructionDetails);
+                            //save instructions to an array called "instructions" in this member's document
+                            member.set({
+                                instruction: firebase.firestore.FieldValue.arrayUnion(instructionDetails)
+                            }, {
+                                merge: true
+                            })
+                        }
+                    })
+            })
+        })
+}
 // Confirm if the user really wants to send the instruction
 function displayPopup() {
     confirmInstructions();
