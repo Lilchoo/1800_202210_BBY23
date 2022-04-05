@@ -1,5 +1,5 @@
 /* survey.html css start*/
-.card {
+#form > .card {
     background-color: white;
     border: 1px solid #333;
     border-radius: .5rem;
@@ -265,4 +265,45 @@
 .popup img{
     width: 80px;
     margin-top: -50px;
+}
+
+/* assignInstruction.html ends */
+
+/* aboutUs.html starts */
+
+.aboutUs-container > #aboutUs-title {
+    color: #E63946;
+}
+
+#aboutUs-para{
+    width: 80%;
+    margin: 5px auto 5px auto;
+    text-align: center;
+    font-size: small;
+}
+
+#highlight {
+    font-style: italic;
+}
+
+#team-members {
+    width: 90%;
+    margin: 0 auto 0 auto;
+    text-align: center;
+}
+
+.member-box{
+    display: inline-flex;
+}
+.member-image {
+    width: auto;
+    height: 50vh;
+    border-radius: 15px 50px;
+}
+
+
+.member-name {
+    font-weight: bold;
+    color: #E63946;
+    font-size: 16px;
 }
