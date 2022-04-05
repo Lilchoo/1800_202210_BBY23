@@ -15,16 +15,15 @@ firebase.auth().onAuthStateChanged(user => {
 })
 
 function insertInstruction(currentUser, userTest_ID) {
-    //currentUser = db.collection("users").doc(user.uid);
     currentUser.get()
         .then(userDoc => {
-
-            var date = userDoc.data().date;
-            console.log(date);
-            document.getElementById("date-goes-here").innerText = date
-            var task = userDoc.data().instructions;
-            console.log(task);
-            document.getElementById("instruction-goes-here").innerText = task
+            let task = "";
+            var data = userDoc.data().instruction;
+            for (let i = 0; i < data.length; i++) {
+                task += "<div>" + data[i] + "</div><br/>";
+            }
+            console.log("task: " + task);
+            document.getElementById("instruction-goes-here").innerHTML = "<div>" + task +"</div>";
         })
 }
 

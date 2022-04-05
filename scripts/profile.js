@@ -98,7 +98,7 @@ function a() {
     let div = document.getElementById("profile-container");
 
     str = "<div class='text-center h1 mx-2 my-2' style='color: #E63946'>You are logged out. See you later!</div>"
-    + "<br/><div class='text-center my-3'><img src='/images/thank-you.jpg' style = 'width: 80vw; height : auto, '/></div>";
+    + "<br/><div class='text-center my-3' style='align-self: center'><img src='/images/thank-you.jpg' style = 'width: 80vw; height : auto '/></div>";
 
     div.innerHTML = str;
     console.log("thank-you message after user logs out");
