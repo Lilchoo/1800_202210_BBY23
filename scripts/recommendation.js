@@ -75,8 +75,12 @@ function read_display_Recommendation(currentUser, userTest_ID) {
                                             .then(highDoc => {
                                                 console.log(highDoc.data());
                                                 document.getElementById("recommendationGroup").innerHTML =
-                                                    "Instruction: " + highDoc.data().Instruction + "<br>" +
-                                                    "Details: " + highDoc.data().Details + "<br>";
+
+                                                "<div><br><img src='/images/hospital.jpg' class='rounded mx-auto d-block' width='60%'/><h3>" + highDoc.data().Instruction + "</h3></div>"
+                                                + "<div><br><h5>" + highDoc.data().Details + "</h5></div>"
+                                                + "<button type='button' class='btn btn-lg mx-auto my-3 btn-success' style='max-width: fit-content; font-size: 25px'><a href='./personalHealth.html' class='text-light text-decoration-none'>Back To Health Status</a></button></div></div>";
+                                                    // "Instruction: " + highDoc.data().Instruction + "<br>" +
+                                                    // "Details: " + highDoc.data().Details + "<br>";
                                             })
 
                                     } else if (thisDoc.data().close_contact == "yes" || listOne > 1 || listTwo > 3) {
@@ -84,16 +88,30 @@ function read_display_Recommendation(currentUser, userTest_ID) {
                                             .then(mediumDoc => {
                                                 console.log(mediumDoc.data());
                                                 document.getElementById("recommendationGroup").innerHTML =
-                                                    "Instruction: " + mediumDoc.data().Instruction + "<br>" +
-                                                    "Details: " + mediumDoc.data().Details + "<br>";
+
+                                                "<div><br><img src='/images/doctor.webp' class='rounded mx-auto d-block' style='max-width: fit-content;' width='60%'/><h3>" + mediumDoc.data().Instruction + "</h3></div>"
+                                                + "<div><br><h5>" + mediumDoc.data().Details + "</h5></div>"
+                                                + "<button type='button' class='btn btn-lg mx-auto my-3 btn-success' style='max-width: fit-content; font-size: 25px'><a href='./personalHealth.html' class='text-light text-decoration-none'>Back To Health Status</a></button></div></div>";
+
+
+
+                                                    // "Instruction: " + mediumDoc.data().Instruction + "<br>" +
+                                                    // "Details: " + mediumDoc.data().Details + "<br>";
                                             })
                                     } else {
                                         resultsLow.get()
                                             .then(lowDoc => {
                                                 console.log(lowDoc.data());
                                                 document.getElementById("recommendationGroup").innerHTML =
-                                                    "Instruction: " + lowDoc.data().Instruction + "<br>" +
-                                                    "Details: " + lowDoc.data().Details + "<br>";
+
+                                                "<div><br><img src='/images/healthy.png' class='rounded mx-auto d-block' style='max-width: fit-content;' width='60%'/><h3>" + lowDoc.data().Instruction + "</h3></div>"
+                                                + "<div><br><h5>" + lowDoc.data().Details + "</h5></div>"
+                                                + "<button type='button' class='btn btn-lg mx-auto my-3 btn-success' style='max-width: fit-content; font-size: 25px'><a href='./personalHealth.html' class='text-light text-decoration-none'>Back To Health Status</a></button></div></div>";
+                                                    
+                                                
+                                                
+                                                // "Instruction: " + lowDoc.data().Instruction + "<br>" +
+                                                //     "Details: " + lowDoc.data().Details + "<br>";
                                             })
                                     }
 

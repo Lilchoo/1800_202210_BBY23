@@ -1,8 +1,10 @@
 var currentUser;
+
 firebase.auth().onAuthStateChanged(user => {
     if (user) {
         currentUser = db.collection("users").doc(user.uid);
         var userTest_ID = user.uid
+
 
         insertSymptoms(currentUser, userTest_ID);
         insertName();
@@ -34,10 +36,12 @@ function toSurveyAgain() {
 
 function insertSymptoms(currentUser, userTest_ID) {
     var currentResults = db.collection("Results");
-    var arraySymptoms1 = [];
-    var arraySymptoms2 = [];
-    var listOne;
-    var listTwo;
+    let arraySymptoms1 = [];
+    let arraySymptoms2 = [];
+    let tableS = [];
+    let tableSymptoms;
+    var listOne = [];
+    var listTwo = [];
 
     console.log(userTest_ID);
     currentResults.get()
@@ -49,62 +53,117 @@ function insertSymptoms(currentUser, userTest_ID) {
                     .then(resultDoc => {
                         var resultsUserID = resultDoc.data().userID;
 
-                if (resultsUserID == userTest_ID) {
-                    db.collection("Results").doc(documentID).get()
-                    .then(thisDoc => {
+                        if (resultsUserID == userTest_ID) {
+                            db.collection("Results").doc(documentID).get()
+                                .then(thisDoc => {
 
-                        arraySymptoms1.push(thisDoc.data().fever_chills);
-                        arraySymptoms1.push(thisDoc.data().cough);
-                        arraySymptoms1.push(thisDoc.data().shortness_breath);
-                        arraySymptoms1.push(thisDoc.data().lost_sense_smell_taste);
+                                    arraySymptoms1.push(thisDoc.data().fever_chills);
+                                    arraySymptoms1.push(thisDoc.data().cough);
+                                    arraySymptoms1.push(thisDoc.data().shortness_breath);
+                                    arraySymptoms1.push(thisDoc.data().lost_sense_smell_taste);
 
-                        arraySymptoms2.push(thisDoc.data().sorethroat);
-                        arraySymptoms2.push(thisDoc.data().headache);
-                        arraySymptoms2.push(thisDoc.data().fatigue_tiredness);
-                        arraySymptoms2.push(thisDoc.data().runnynose);
-                        arraySymptoms2.push(thisDoc.data().sneezing);
-                        arraySymptoms2.push(thisDoc.data().diarrhea);
-                        arraySymptoms2.push(thisDoc.data().lost_appetite);
-                        arraySymptoms2.push(thisDoc.data().nausea_vomiting);
-                        arraySymptoms2.push(thisDoc.data().body_muscle_aches);
+                                    arraySymptoms2.push(thisDoc.data().sorethroat);
+                                    arraySymptoms2.push(thisDoc.data().headache);
+                                    arraySymptoms2.push(thisDoc.data().fatigue_tiredness);
+                                    arraySymptoms2.push(thisDoc.data().runnynose);
+                                    arraySymptoms2.push(thisDoc.data().sneezing);
+                                    arraySymptoms2.push(thisDoc.data().diarrhea);
+                                    arraySymptoms2.push(thisDoc.data().lost_appetite);
+                                    arraySymptoms2.push(thisDoc.data().nausea_vomiting);
+                                    arraySymptoms2.push(thisDoc.data().body_muscle_aches);
 
-                        for (i = 0; i < arraySymptoms1.length; i++) {
-                            if (arraySymptoms1[i] = "true") {
-                                listOne++;
-                            }
-                        }
+                                    for (i = 0; i < arraySymptoms1.length; i++) {
+                                        if (arraySymptoms1[i] == true) {
+                                            listOne.push(arraySymptoms1[i]);
 
-                        for (i = 0; i < arraySymptoms2.length; i++) {
-                            if (arraySymptoms2[i] = "true") {
-                                listTwo++;
-                            }
-                        }
+                                            switch (i) {
+                                                case 1:
+                                                    tableS.push("Fever and Chills");
+                                                    break;
+                                                case 2:
+                                                    tableS.push("Cough");
+                                                    break;
+                                                case 3:
+                                                    tableS.push("Shortness of Breath");
+                                                    break;
+                                                case 4:
+                                                    tableS.push("Lost of sense, smell, and taste");
+                                                    break;
+                                            }
+                                        }
 
-                        if(thisDoc.data().emergency == "yes") {
-                            document.getElementById("health-status").innerHTML =
-                            "<h2>" + "red" + "</h2>"
-                        } else if(thisDoc.data().close_contact == "yes" || listOne > 1 || listTwo > 3) {
-                            document.getElementById("health-status").innerHTML =
-                            "<h2>" + "orange" + "</h2>"
-                        } else {
-                            document.getElementById("health-status").innerHTML =
-                            "<h2>" + "green" + "</h2>"
-                        }
+                                    }
 
-                        document.getElementById("table-symptoms").innerHTML = 
-                        "Fever and Chills: " + thisDoc.data().fever_chills + "<br>" +
-                        "Cough: " + thisDoc.data().cough + "<br>" +
-                        "Shortness of Breath: " + thisDoc.data().shortness_breath + "<br>" +
-                        "Lost of sense, smell, and taste: " + thisDoc.data().lost_sense_smell_taste + "<br>" +
-                        "Sorethroat: " + thisDoc.data().sorethroat + "<br>" +
-                        "Headache: " + thisDoc.data().headache + "<br>" +
-                        "Fatigue and tiredness: " + thisDoc.data().fatigue_tiredness + "<br>" +
-                        "Runnynose: " + thisDoc.data().runnynose + "<br>" +
-                        "Sneezing: " + thisDoc.data().sneezing + "<br>" +
-                        "Diarrhea: " + thisDoc.data().diarrhea + "<br>" +
-                        "Lost of Appetite: " + thisDoc.data().lost_appetite + "<br>" +
-                        "Nausea or Vomiting: " + thisDoc.data().nausea_vomiting + "<br>" +
-                        "Body and Muscle Aches: " + thisDoc.data().body_muscle_aches + "<br>";
+                                    for (i = 0; i < arraySymptoms2.length; i++) {
+                                        if (arraySymptoms2[i] == true) {
+                                            listTwo.push(arraySymptoms2[i]);
+
+                                            switch (i) {
+                                                case 1:
+                                                    tableS.push("Sorethroat");
+                                                    break;
+                                                case 2:
+                                                    tableS.push("Headache");
+                                                    break;
+                                                case 3:
+                                                    tableS.push("Fatigue and tiredness");
+                                                    break;
+                                                case 4:
+                                                    tableS.push("Runnynose");
+                                                    break;
+                                                case 5:
+                                                    tableS.push("Sneezing");
+                                                    break;
+                                                case 6:
+                                                    tableS.push("Diarrhea");
+                                                    break;
+                                                case 7:
+                                                    tableS.push("Lost of Appetite");
+                                                    break;
+                                                case 8:
+                                                    tableS.push("Nausea or Vomiting");
+                                                    break;
+                                                case 9:
+                                                    tableS.push("Body and Muscle Aches");
+                                                    break;
+
+                                            }
+                                        }
+                                    }
+
+                                    if (thisDoc.data().emergency == "yes") {
+                                        currentUser.update({
+                                            status: "red"
+                                        })
+                                        document.getElementById("health-status").innerHTML =
+                                            "<h1 style='background-color: red'>STATUS</h1>"
+
+                                    } else if (thisDoc.data().close_contact == "yes" || listOne.length > 1 || listTwo.length > 3) {
+                                        currentUser.update({
+                                            status: "orange"
+                                        })
+                                        document.getElementById("health-status").innerHTML =
+                                            "<h1 style='background-color: orange'>STATUS</h1>"
+                                    } else {
+                                            currentUser.update({
+                                                status: "green"
+                                            })
+                                        document.getElementById("health-status").innerHTML =
+                                            "<h1 style='background-color: green'>STATUS</h1>"
+                                    }
+
+                                    tableSymptoms = "<table><tr><th>Symptoms</th></tr>"
+                                    for (let i = 0; i < tableS.length; i++) {
+                                        tableSymptoms += "<tr><td>" + tableS[i] + "</td></tr>";
+                                    }
+                                    tableSymptoms += "</table>";
+
+                                    if (tableS.length <= 0) {
+                                        document.getElementById("table-symptoms").innerHTML = "<h6>NONE</h6>";
+                                    } else {
+                                        document.getElementById("table-symptoms").innerHTML = tableSymptoms;
+
+                                    }
 
 
                                 })
@@ -125,3 +184,4 @@ function insertName() {
 
     })
 }
+

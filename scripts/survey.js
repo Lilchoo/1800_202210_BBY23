@@ -63,8 +63,7 @@ function surveyResults(currentUser, userID) {
                                             }).then(() => {
                                                 db.collection("users").doc(user.uid).update({
                                                     surveyCompleted: "True",
-                                                    survey_timestamp: firebase.firestore.FieldValue.serverTimestamp(),
-                                                    status: "Pending"
+                                                    survey_timestamp: firebase.firestore.FieldValue.serverTimestamp()
                                                 })
                                             }).then(displayThankYou())
                                         }
