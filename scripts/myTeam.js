@@ -3,7 +3,7 @@ firebase.auth().onAuthStateChanged(user => {
         console.log(user.uid);
         currentUser = db.collection("users").doc(user.uid);
         displayUsers("users", user.uid);
-        insertTeam();
+        insertTeamName();
     } else {
         str = "<h1 class='text-dark my-3' id='myTeam-title'>Please log in!</h1>" +
             "<div class='d-grid gap-2 d-sm-flex justify-content-sm-center'>" +
@@ -24,6 +24,7 @@ function displayUsers(collection, uID) {
                     var memberName = doc.data().name;
                     var role = doc.data().role;
                     var status = doc.data().status;
+                    var picURL = doc.data().profilePic;
                     let str = "<div class='my-1' style='background-color: ";
                     if (status == "red") {
                         str += "#E63946; color: white; width:100%'><a><abbr title='Bad health condition!'>High Risk";
@@ -37,7 +38,7 @@ function displayUsers(collection, uID) {
     
                     newcard.querySelector('.card-title').innerHTML = memberName;
                     newcard.querySelector('.card-text').innerHTML = role + "<br/>" + str;
-                    newcard.querySelector('.card-image').src = "./images/img" + i + ".jfif";
+                    newcard.querySelector('.card-image').src = picURL;
     
                     newcard.querySelector('.more').href = "assignInstruction.html?memberName=" + memberName + "&id=" + userID;
     
@@ -48,7 +49,7 @@ function displayUsers(collection, uID) {
         })
 }
 
-function insertTeam() {
+function insertTeamName() {
 
     currentUser.get()
         .then(userDoc => {
