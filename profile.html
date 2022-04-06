@@ -12,6 +12,7 @@
 
     <link rel="stylesheet" href="styles/style.css">
     <title>Health+</title>
+    <link rel="icon" type="image/png" href="/images/favicon.ico">
 
     <!-------------------------------------------------------->
     <!-- Firebase 8 Library related CSS, JS, JQuery go here -->
@@ -75,7 +76,7 @@
             </fieldset>
             <div class="upload-container text-center py-3">Upload your profile picture<br/>
                 <img id="mypic-goes-here" src="#" width=70 height=70 />
-                <input type="file" id="mypic-input" accept="image/*" />
+                <input type="file" id="mypic-input" style="max-width: 90vw;" accept="image/*" />
             </div>
             <div class="d-flex justify-content-center mt-2 mb-2 gap-1 w-100">
                 <button type="button" class="btn btn-secondary" onclick="editProfile()">Edit</button>
