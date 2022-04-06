@@ -1,4 +1,5 @@
 var currentUser;
+var tableS = [];
 
 firebase.auth().onAuthStateChanged(user => {
     if (user) {
@@ -20,6 +21,7 @@ function Recommendations() {
 }
 
 function toSurveyAgain() {
+    tableS.length = 0;
     console.log("do survey again");
     firebase.auth().onAuthStateChanged(user => {
         if (user) {
@@ -38,7 +40,7 @@ function insertSymptoms(currentUser, userTest_ID) {
     var currentResults = db.collection("Results");
     let arraySymptoms1 = [];
     let arraySymptoms2 = [];
-    let tableS = [];
+    // var tableS = [];
     let tableSymptoms;
     var listOne = [];
     var listTwo = [];
@@ -77,16 +79,16 @@ function insertSymptoms(currentUser, userTest_ID) {
                                             listOne.push(arraySymptoms1[i]);
 
                                             switch (i) {
-                                                case 1:
+                                                case 0:
                                                     tableS.push("Fever and Chills");
                                                     break;
-                                                case 2:
+                                                case 1:
                                                     tableS.push("Cough");
                                                     break;
-                                                case 3:
+                                                case 2:
                                                     tableS.push("Shortness of Breath");
                                                     break;
-                                                case 4:
+                                                case 3:
                                                     tableS.push("Lost of sense, smell, and taste");
                                                     break;
                                             }
@@ -99,31 +101,31 @@ function insertSymptoms(currentUser, userTest_ID) {
                                             listTwo.push(arraySymptoms2[i]);
 
                                             switch (i) {
-                                                case 1:
+                                                case 0:
                                                     tableS.push("Sorethroat");
                                                     break;
-                                                case 2:
+                                                case 1:
                                                     tableS.push("Headache");
                                                     break;
-                                                case 3:
+                                                case 2:
                                                     tableS.push("Fatigue and tiredness");
                                                     break;
-                                                case 4:
+                                                case 3:
                                                     tableS.push("Runnynose");
                                                     break;
-                                                case 5:
+                                                case 4:
                                                     tableS.push("Sneezing");
                                                     break;
-                                                case 6:
+                                                case 5:
                                                     tableS.push("Diarrhea");
                                                     break;
-                                                case 7:
+                                                case 6:
                                                     tableS.push("Lost of Appetite");
                                                     break;
-                                                case 8:
+                                                case 7:
                                                     tableS.push("Nausea or Vomiting");
                                                     break;
-                                                case 9:
+                                                case 8:
                                                     tableS.push("Body and Muscle Aches");
                                                     break;
 
