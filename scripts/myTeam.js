@@ -2,7 +2,7 @@ firebase.auth().onAuthStateChanged(user => {
     if (user) {
         console.log(user.uid);
         currentUser = db.collection("users").doc(user.uid);
-        displayUsers("users");
+        displayUsers("users", user.uid);
         insertTeam();
     } else {
         str = "<h1 class='text-dark my-3' id='myTeam-title'>Please log in!</h1>" +
@@ -13,36 +13,37 @@ firebase.auth().onAuthStateChanged(user => {
     }
 })
 
-function displayUsers(collection) {
+function displayUsers(collection, uID) {
     let cardTemplate = document.getElementById("userCardTemplate");
-    db.collection(collection).get()
+    db.collection(collection).orderBy("name").get()
         .then(snap => {
             var i = 1;
             snap.forEach(doc => {
                 var userID = doc.id;
-                console.log(userID);
-                var memberName = doc.data().name;
-                var role = doc.data().role;
-                var status = doc.data().status;
-                let str = "<div class='my-1' style='background-color: ";
-                if (status == "red") {
-                    str += "#E63946; color: white; width:100%'><a><abbr title='Bad health condition!'>High Risk";
-                } else if (status == "green") {
-                    str += "darkgreen; color: white; width:100%'><a><abbr title='Good health!'>Low Risk";
-                } else if (status == "orange") {
-                    str += "orange; color: black; width:100%'><a><abbr title='Recovering!'>Medium Risk";
+                if (uID != userID) {
+                    var memberName = doc.data().name;
+                    var role = doc.data().role;
+                    var status = doc.data().status;
+                    let str = "<div class='my-1' style='background-color: ";
+                    if (status == "red") {
+                        str += "#E63946; color: white; width:100%'><a><abbr title='Bad health condition!'>High Risk";
+                    } else if (status == "green") {
+                        str += "darkgreen; color: white; width:100%'><a><abbr title='Good health!'>Low Risk";
+                    } else if (status == "orange") {
+                        str += "orange; color: black; width:100%'><a><abbr title='Recovering!'>Medium Risk";
+                    }
+                    str += "</abbr></a></div>";
+                    let newcard = cardTemplate.content.cloneNode(true);
+    
+                    newcard.querySelector('.card-title').innerHTML = memberName;
+                    newcard.querySelector('.card-text').innerHTML = role + "<br/>" + str;
+                    newcard.querySelector('.card-image').src = "./images/img" + i + ".jfif";
+    
+                    newcard.querySelector('.more').href = "assignInstruction.html?memberName=" + memberName + "&id=" + userID;
+    
+                    document.getElementById(collection + "-go-here").appendChild(newcard);
+                    i++;
                 }
-                str += "</abbr></a></div>";
-                let newcard = cardTemplate.content.cloneNode(true);
-
-                newcard.querySelector('.card-title').innerHTML = memberName;
-                newcard.querySelector('.card-text').innerHTML = role + "<br/>" + str;
-                newcard.querySelector('.card-image').src = "./images/img" + i + ".jfif";
-
-                newcard.querySelector('.more').href = "assignInstruction.html?memberName=" + memberName + "&id=" + userID;
-
-                document.getElementById(collection + "-go-here").appendChild(newcard);
-                i++;
             })
         })
 }
