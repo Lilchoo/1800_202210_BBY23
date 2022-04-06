@@ -21,6 +21,7 @@
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
     <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
 
 </head>
@@ -30,7 +31,7 @@
     <nav id="navbarPlaceholder"></nav>
 
 
-    <div class="profile-container mt-3" id="profile-container">
+    <div class="profile-container mt-3 mb-4" id="profile-container">
         <h1 id="profile-title">Your Profile</h1>
         <p id="profile-instruction"><small>Click on "Edit" button below to fill in!</small></p>
         <form class="py-5 px-4" id="form">
@@ -63,15 +64,19 @@
                     <label>manager</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="role" value="others">
+                    <input class="form-check-input" type="radio" name="role" value="others" checked>
                     <label>others</label>
                 </div>
 
-                <div class="form-group mb-3">
+                <div class="form-group mb-2">
                     <label>Team</label>
                     <input type="text" id="teamInput" class="form-control" required placeholder="Enter your team">
                 </div>
             </fieldset>
+            <div class="upload-container text-center py-3">Upload your profile picture<br/>
+                <img id="mypic-goes-here" src="#" width=70 height=70 />
+                <input type="file" id="mypic-input" accept="image/*" />
+            </div>
             <div class="d-flex justify-content-center mt-2 mb-2 gap-1 w-100">
                 <button type="button" class="btn btn-secondary" onclick="editProfile()">Edit</button>
                 <button type="button" class="btn btn-success" onclick="saveProfile()">Save</button>
@@ -85,7 +90,7 @@
     <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
-    </script>
+        </script>
 
     <!-- Option 2: Separate Popper and Bootstrap JS -->
     <!--

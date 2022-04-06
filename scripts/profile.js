@@ -23,7 +23,7 @@ function populateInfo() {
                         document.getElementById("DOBInput").value = userDOB;
                     }
                     if (userRole != null) {
-                        document.querySelector('input[name="role"]').value = userRole;
+                        document.querySelector('input[name="role"]:checked').value = userRole;
                     }
                     if (userTeam != null) {
                         document.getElementById("teamInput").value = userTeam;
@@ -64,6 +64,7 @@ function saveProfile() {
                     team: userTeam
                 })
                 .then(() => {
+                    console.log("role: " + userRole);
                     console.log("Document successfully updated!");
                     document.getElementById('personalInfoFields').disabled = true;
                     const form = document.getElementById("form");
@@ -93,13 +94,75 @@ function logOut() {
     }, 3000);
 }
 
-
+//Display good-bye message after user logs out
 function a() {
     let div = document.getElementById("profile-container");
 
-    str = "<div class='text-center h1 mx-2 my-2' style='color: #E63946'>You are logged out. See you later!</div>"
-    + "<br/><div class='text-center my-3' style='align-self: center'><img src='/images/thank-you.jpg' style = 'width: 80vw; height : auto '/></div>";
+    str = "<div class='text-center h1 mx-2 my-2' style='color: #E63946'>You are logged out. See you later!</div>" +
+        "<br/><div class='text-center my-3' style='align-self: center'><img src='/images/thank-you.jpg' style = 'width: 80vw; height : auto '/></div>";
 
     div.innerHTML = str;
     console.log("thank-you message after user logs out");
 }
+
+//Upload picture, store picture into storage, store picture's url to user doc
+function uploadUserProfilePic() {
+    // Let's assume my storage is only enabled for authenticated users 
+    // This is set in your firebase console storage "rules" tab
+
+    firebase.auth().onAuthStateChanged(function (user) {
+        var fileInput = document.getElementById("mypic-input"); // pointer #1
+        const image = document.getElementById("mypic-goes-here"); // pointer #2
+
+        // listen for file selection
+        fileInput.addEventListener('change', function (e) {
+            var file = e.target.files[0];
+            var blob = URL.createObjectURL(file);
+            image.src = blob; // display this image
+
+            //store using this name
+            var storageRef = storage.ref("images/");
+            console.log(storageRef.toString());
+            //upload the picked file with .put()
+            storageRef.child( user.uid + ".jpg").put(file)
+                .then(function (snap) {
+                    console.log('Uploaded to Cloud Storage.');
+                    //get the URL of stored file with .getDownloadURL()
+                    storageRef = storage.ref("images/" + user.uid + ".jpg")
+                    storageRef.getDownloadURL()
+                        .then(function (url) { // Get URL of the uploaded file
+                            console.log(url); // Save the URL into users collection
+                            console.log(user.uid);
+                            db.collection("users").doc(user.uid).set({
+                                    profilePic: url
+                                }, {
+                                    merge: true
+                                })
+                                .then(function () {
+                                    console.log('Added post picture to Firestore.');
+                                })
+                        })
+                })
+        })
+    })
+}
+uploadUserProfilePic();
+
+//Display user profile picture
+function displayUserProfilePic() {
+    console.log("hi");
+    firebase.auth().onAuthStateChanged(function (user) { //get user object
+        db.collection("users").doc(user.uid) //use user's uid
+            .get() //READ the doc
+            .then(function (doc) {
+                var picUrl = doc.data().profilePic; //extract pic url
+
+                // use this line if "mypicdiv" is a "div"
+                //$("#mypicdiv").append("<img src='" + picUrl + "'>")
+
+                // use this line if "mypic-goes-here" is an "img" 
+                $("#mypic-goes-here").attr("src", picUrl);
+            })
+    })
+}
+displayUserProfilePic();
