@@ -33,7 +33,7 @@ table {
 #personalhealth {
     display: grid;
     grid-template-columns: 1fr 25vh 25vh 1fr;
-    grid-template-rows: 100px 1fr 1fr 1fr 100px;
+    grid-template-rows: 100px 100px 1fr 1fr 100px;
 
 }
 
@@ -47,7 +47,9 @@ table {
 }
 
 #table-symptoms {
-    min-height: 250px;
+    padding: 0;
+    margin: 0;
+    min-height: 200px;
     height: auto;
     justify-self: center;
     align-self: center;

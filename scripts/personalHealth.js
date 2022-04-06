@@ -4,8 +4,7 @@ var tableS = [];
 firebase.auth().onAuthStateChanged(user => {
     if (user) {
         currentUser = db.collection("users").doc(user.uid);
-        var userTest_ID = user.uid
-
+        var userTest_ID = user.uid;
 
         insertSymptoms(currentUser, userTest_ID);
         insertName();
@@ -54,11 +53,10 @@ function insertSymptoms(currentUser, userTest_ID) {
                 db.collection("Results").doc(documentID).get()
                     .then(resultDoc => {
                         var resultsUserID = resultDoc.data().userID;
-
+                        
                         if (resultsUserID == userTest_ID) {
                             db.collection("Results").doc(documentID).get()
                                 .then(thisDoc => {
-
                                     arraySymptoms1.push(thisDoc.data().fever_chills);
                                     arraySymptoms1.push(thisDoc.data().cough);
                                     arraySymptoms1.push(thisDoc.data().shortness_breath);
