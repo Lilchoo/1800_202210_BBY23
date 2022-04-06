@@ -99,7 +99,7 @@ function read_display_Recommendation(currentUser, userTest_ID) {
                                                 console.log(lowDoc.data());
                                                 document.getElementById("recommendationGroup").innerHTML =
 
-                                                "<div><br><img src='/images/healthy.png' class='rounded mx-auto d-block' style='max-width: fit-content;' width='30%'/><h5><br>" + lowDoc.data().Instruction + "</h5></div>"
+                                                "<div><br><img src='/images/goodstatus.jpg' class='rounded mx-auto d-block' style='max-width: fit-content;' width='30%'/><h5><br>" + lowDoc.data().Instruction + "</h5></div>"
                                                 + "<div><br><h6>" + lowDoc.data().Details + "</h6></div>"
                                                 + "<button type='button' class='btn mx-auto my-3 btn-success' style='max-width: fit-content; font-size: 20px'><a href='./personalHealth.html' class='text-light text-decoration-none'>Back To Health Status</a></button></div></div>";
   
