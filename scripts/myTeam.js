@@ -13,6 +13,7 @@ firebase.auth().onAuthStateChanged(user => {
     }
 })
 
+//function that display all users from a specific team number. 
 function displayUsers(collection, uID) {
     let cardTemplate = document.getElementById("userCardTemplate");
     db.collection(collection).orderBy("name").get()

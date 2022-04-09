@@ -34,7 +34,7 @@ function toSurveyAgain() {
     })
 }
 
-
+//Function insert user's symtoms based on the data collected from firebase.
 function insertSymptoms(currentUser, userTest_ID) {
     var currentResults = db.collection("Results");
     let arraySymptoms1 = [];
@@ -57,6 +57,9 @@ function insertSymptoms(currentUser, userTest_ID) {
                         if (resultsUserID == userTest_ID) {
                             db.collection("Results").doc(documentID).get()
                                 .then(thisDoc => {
+
+                                    //Add user's data that was pulled from firebase into two arrays
+                                    //for better analysis.
                                     arraySymptoms1.push(thisDoc.data().fever_chills);
                                     arraySymptoms1.push(thisDoc.data().cough);
                                     arraySymptoms1.push(thisDoc.data().shortness_breath);
@@ -71,6 +74,9 @@ function insertSymptoms(currentUser, userTest_ID) {
                                     arraySymptoms2.push(thisDoc.data().lost_appetite);
                                     arraySymptoms2.push(thisDoc.data().nausea_vomiting);
                                     arraySymptoms2.push(thisDoc.data().body_muscle_aches);
+
+                                    //If the symtoms in the arrays are true, it will match with the
+                                    //index number and input into array listOne.
 
                                     for (i = 0; i < arraySymptoms1.length; i++) {
                                         if (arraySymptoms1[i] == true) {
@@ -93,6 +99,9 @@ function insertSymptoms(currentUser, userTest_ID) {
                                         }
 
                                     }
+
+                                    //If the symtoms in the arrays are true, it will match with the
+                                    //index number and input into array listTwo.
 
                                     for (i = 0; i < arraySymptoms2.length; i++) {
                                         if (arraySymptoms2[i] == true) {
@@ -130,6 +139,9 @@ function insertSymptoms(currentUser, userTest_ID) {
                                             }
                                         }
                                     }
+
+                                    //This function that checks on certain conditions and return a different page
+                                    //based on user survey's data.
 
                                     if (thisDoc.data().emergency == "yes") {
                                         currentUser.update({
@@ -175,6 +187,7 @@ function insertSymptoms(currentUser, userTest_ID) {
 }
 
 
+//Function that insert user's name into the page.
 function insertName() {
     currentUser.get().then(userDoc => {
 

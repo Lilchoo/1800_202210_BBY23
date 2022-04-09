@@ -100,3 +100,5 @@ Tips for file naming files and folders:
 * use lowercase with no spaces
 * use dashes (not underscore) for word separation
 
+## PICTURES
+Majority pictures are from google, because it wasn't tracked unfortunately we are unable references specific where is it from, we will tracked in moving forward. 

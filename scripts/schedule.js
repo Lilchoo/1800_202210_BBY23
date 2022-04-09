@@ -14,6 +14,8 @@ firebase.auth().onAuthStateChanged(user => {
     }
 })
 
+//Pull instruction collection's data from firebase and insert
+//into the schedule page.
 function insertInstruction(currentUser, userTest_ID) {
     currentUser.get()
         .then(userDoc => {
@@ -27,7 +29,7 @@ function insertInstruction(currentUser, userTest_ID) {
         })
 }
 
-
+//Insert user's name into the page.
 function insertName(currentUser) {
     currentUser.get().then(userDoc => {
 

@@ -17,7 +17,8 @@ firebase.auth().onAuthStateChanged(user => {
 })
 
 
-
+// This function dom the recommendations which is pulled from firebase and condition is
+// based on user survey's data.
 function read_display_Recommendation(currentUser, userTest_ID) {
 
     var currentResults = db.collection("Results");
@@ -43,6 +44,8 @@ function read_display_Recommendation(currentUser, userTest_ID) {
                             db.collection("Results").doc(documentID).get()
                                 .then(thisDoc => {
 
+                                    //Add user's data that was pulled from firebase into two arrays
+                                    //for better analysis.
                                     arraySymptoms1.push(thisDoc.data().fever_chills);
                                     arraySymptoms1.push(thisDoc.data().cough);
                                     arraySymptoms1.push(thisDoc.data().shortness_breath);
@@ -58,6 +61,9 @@ function read_display_Recommendation(currentUser, userTest_ID) {
                                     arraySymptoms2.push(thisDoc.data().nausea_vomiting);
                                     arraySymptoms2.push(thisDoc.data().body_muscle_aches);
 
+                                    //If the symtoms in the arrays are true, it will match with the
+                                    //index number and input into array listOne and listTwo.
+
                                     for (i = 0; i < arraySymptoms1.length; i++) {
                                         if (arraySymptoms1[i] == true) {
                                             listOne.push(arraySymptoms1[i]);
@@ -70,6 +76,8 @@ function read_display_Recommendation(currentUser, userTest_ID) {
                                         }
                                     }
 
+                                    //Input information which was pulled from firebase recommendation collection as
+                                    //dom.
                                     if (thisDoc.data().emergency == "yes") {
                                         resultsHigh.get()
                                             .then(highDoc => {
@@ -115,7 +123,7 @@ function read_display_Recommendation(currentUser, userTest_ID) {
         })
 }
 
-
+//Function that insert user's name into the page.
 function insertName() {
     currentUser.get().then(userDoc => {
 

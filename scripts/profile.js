@@ -1,5 +1,6 @@
 var currentUser
 
+//function that populates user's personal information to the firebase.
 function populateInfo() {
     firebase.auth().onAuthStateChanged(user => {
         if (user) {
@@ -46,6 +47,7 @@ function editProfile() {
     document.getElementById('personalInfoFields').disabled = false;
 }
 
+//function that allow user to save their profile data which was recently inserted.
 function saveProfile() {
     userName = document.getElementById('nameInput').value;
     userEmail = document.getElementById('emailInput').value;
@@ -80,6 +82,7 @@ function saveProfile() {
     })
 }
 
+//function that allow user to log out from the webpage.
 function logOut() {
     a();
 
